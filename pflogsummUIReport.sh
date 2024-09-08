@@ -286,7 +286,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             </div>
             <!-- Page title actions -->
             <div class="col-auto ms-auto mt-0 d-print-none">
-                <div class="btn-list">
+                <div class="">
                 Last Update: <b>##REPORTDATE##</b>
                 <br>
                 Server: <b>##ACTIVEHOSTNAME##</b>
@@ -296,14 +296,14 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
     </div>
 </div>
 
-    <div class="container">
+    <div class="page-body">
 
         <div class="row">
 
             <div class="col-sm">
 
                 <!-- January Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">January</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##JanuaryCount##</span></h6>
@@ -326,7 +326,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- February Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">February</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##FebruaryCount##</span></h6>
@@ -349,7 +349,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- March Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">March</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##MarchCount##</span></h6>
@@ -372,7 +372,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- April Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">April</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##AprilCount##</span></h6>
@@ -402,7 +402,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- May Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">May</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##MayCount##</span></h6>
@@ -425,7 +425,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- June Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">June</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##JuneCount##</span></h6>
@@ -448,7 +448,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- July Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">July</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##JulyCount##</span></h6>
@@ -471,7 +471,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- August Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">August</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##AugustCount##</span></h6>
@@ -500,7 +500,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- September Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">September</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##SeptemberCount##</span></h6>
@@ -523,7 +523,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- October Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">October</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##OctoberCount##</span></h6>
@@ -546,7 +546,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- November Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">November</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##NovemberCount##</span></h6>
@@ -569,7 +569,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <div class="col-sm">
 
                 <!-- December Start-->
-                <div class="card flex-md-row mb-4 shadow-sm h-md-250">
+                <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
                         <h5><strong class="d-inline-block mb-2 text-primary">December</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##DecemberCount##</span></h6>
