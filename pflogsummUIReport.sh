@@ -305,7 +305,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- January Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">January</strong></h5>
+                        <h3>January</h3>
                         <h6>Report Count <span class="badge badge-primary">##JanuaryCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#JanuaryCard" aria-expanded="true" class="d-block"> View
@@ -328,7 +328,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- February Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">February</strong></h5>
+                        <h3>February</h3>
                         <h6>Report Count <span class="badge badge-primary">##FebruaryCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#FebruaryCard" aria-expanded="true" class="d-block"> View
@@ -351,7 +351,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- March Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">March</strong></h5>
+                        <h3>March</h3>
                         <h6>Report Count <span class="badge badge-primary">##MarchCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#MarchCard" aria-expanded="true" class="d-block"> View
@@ -374,7 +374,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- April Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">April</strong></h5>
+                        <h3>April</h3>
                         <h6>Report Count <span class="badge badge-primary">##AprilCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#AprilCard" aria-expanded="true" class="d-block"> View
@@ -404,7 +404,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- May Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">May</strong></h5>
+                        <h3>May</h3>
                         <h6>Report Count <span class="badge badge-primary">##MayCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#MayCard" aria-expanded="true" class="d-block"> View
@@ -427,7 +427,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- June Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">June</strong></h5>
+                        <h3>June</h3>
                         <h6>Report Count <span class="badge badge-primary">##JuneCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#JuneCard" aria-expanded="true" class="d-block"> View
@@ -450,7 +450,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- July Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">July</strong></h5>
+                        <h3>July</h3>
                         <h6>Report Count <span class="badge badge-primary">##JulyCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#JulyCard" aria-expanded="true" class="d-block"> View
@@ -473,7 +473,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- August Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">August</strong></h5>
+                        <h3>August</h3>
                         <h6>Report Count <span class="badge badge-primary">##AugustCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#AugustCard" aria-expanded="true" class="d-block"> View
@@ -502,7 +502,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- September Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">September</strong></h5>
+                        <h3>September</h3>
                         <h6>Report Count <span class="badge badge-primary">##SeptemberCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#SeptemberCard" aria-expanded="true" class="d-block"> View
@@ -525,7 +525,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- October Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">October</strong></h5>
+                        <h3>October</h3>
                         <h6>Report Count <span class="badge badge-primary">##OctoberCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#OctoberCard" aria-expanded="true" class="d-block"> View
@@ -548,7 +548,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- November Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">November</strong></h5>
+                        <h3>November</h3>
                         <h6>Report Count <span class="badge badge-primary">##NovemberCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#NovemberCard" aria-expanded="true" class="d-block"> View
@@ -571,7 +571,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <!-- December Start-->
                 <div class="card flex-md-row mb-4">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <h5><strong class="d-inline-block mb-2 text-primary">December</strong></h5>
+                        <h3>December</h3>
                         <h6>Report Count <span class="badge badge-primary">##DecemberCount##</span></h6>
                         <div class="spacer10"></div>
                         <a data-bs-toggle="collapse" href="#DecemberCard" aria-expanded="true" class="d-block"> View
