@@ -63,7 +63,7 @@ fi
 
 #Create the Cache Directory if it does not exist
 if [ ! -d $HTMLOUTPUTDIR/data ]; then
-  mkdir  $HTMLOUTPUTDIR/data;
+  mkdir -p $HTMLOUTPUTDIR/data;
 fi
 
 #TOOLS
