@@ -49,8 +49,8 @@ PFLOGSUMMOPTIONS=" --verbose_msg_detail --zero_fill "
 PFLOGSUMMBIN="/usr/sbin/pflogsumm  "
 
 ##  HTML Output
-HTMLOUTPUTDIR="/usr/local/mail/openmail/reports"
-HTMLOUTPUT_INDEXDASHBOARD="index.html"
+HTMLOUTPUTDIR="/usr/local/admin/static/reports"
+HTMLOUTPUT_INDEXDASHBOARD="/usr/local/admin/templates/emails/reports.html"
 
 EOF
 echo "DEFAULT configuration file writen to ${PFSYSCONFDIR}/pflogsumui.conf, Please verify the paths before you continue"
@@ -249,7 +249,7 @@ $MOVEF  /tmp/Messageswithnosizedata_tmp /tmp/Messageswithnosizedata  &> /dev/nul
 # SED search and replace tags to fill the content
 #======================================================
 
-cat > $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
+cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 {% extends 'base.html' %}
 
 {% block content %}
@@ -1478,21 +1478,21 @@ DecRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-D
 #======================================================
 # Replace Report Totals for Report - Index
 #======================================================
-sed -i "s/##JanuaryCount##/$JanRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##FebruaryCount##/$FebRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##MarchCount##/$MarRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##AprilCount##/$AprRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##MayCount##/$MayRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##JuneCount##/$JunRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##JulyCount##/$JulRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##AugustCount##/$AugRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##SeptemberCount##/$SepRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##OctoberCount##/$OctRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##NovemberCount##/$NovRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##DecemberCount##/$DecRPTCount/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##JanuaryCount##/$JanRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##FebruaryCount##/$FebRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##MarchCount##/$MarRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##AprilCount##/$AprRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##MayCount##/$MayRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##JuneCount##/$JunRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##JulyCount##/$JulRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##AugustCount##/$AugRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##SeptemberCount##/$SepRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##OctoberCount##/$OctRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##NovemberCount##/$NovRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##DecemberCount##/$DecRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
 
-sed -i "s/##REPORTDATE##/$REPORTDATE/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
-sed -i "s/##ACTIVEHOSTNAME##/$ACTIVEHOSTNAME/g" $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##REPORTDATE##/$REPORTDATE/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##ACTIVEHOSTNAME##/$ACTIVEHOSTNAME/g" $HTMLOUTPUT_INDEXDASHBOARD
 
 
 #======================================================
