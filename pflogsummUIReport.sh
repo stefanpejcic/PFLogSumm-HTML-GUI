@@ -57,9 +57,8 @@ echo "DEFAULT configuration file writen to ${PFSYSCONFDIR}/pflogsumui.conf, Plea
 exit 0
 fi
 
-# docker cp openadmin_mailserver:/usr/local/admin/static/reports /usr/local/admin/templates/emails/reports.html
-# docker cp openadmin_mailserver:/usr/local/admin/static/reports /usr/local/admin/static/reports
-
+# docker cp openadmin_mailserver:/usr/local/admin/static/reports/reports.html /usr/local/admin/templates/emails/reports.html
+# docker cp openadmin_mailserver:/usr/local/admin/static/reports/data /usr/local/admin/templates/emails/data
 
 #Load Config File
 . ${PFSYSCONFDIR}/"pflogsumui.conf"
@@ -288,35 +287,16 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
             <!-- Page title actions -->
             <div class="col-auto ms-auto mt-0 d-print-none">
                 <div class="btn-list">
+                Last Update: <b>##REPORTDATE##</b>
+                <br>
+                Server: <b>##ACTIVEHOSTNAME##</b>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-    <style>
-        .spacer10 {
-            height: 10px;
-        }
-    </style>
-
-</head>
-
     <div class="container">
-
-
-        <h3 class="pb-3 mb-4 font-italic border-bottom">
-            Select Report
-            <dl class="row">
-                <dt class="col-sm-3" style="font-size: 0.5em;">Last Update</dt>
-                <dd class="col-sm-9" style="font-size: 0.5em;">##REPORTDATE##</dd>
-                <dt class="col-sm-3" style="font-size: 0.5em;">Server</dt>
-                <dd class="col-sm-9" style="font-size: 0.5em;">##ACTIVEHOSTNAME##</dd>
-
-            </dl>
-        </h3>
-
 
         <div class="row">
 
@@ -328,7 +308,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">January</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##JanuaryCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#JanuaryCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#JanuaryCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="JanuaryCard" class="collapse hide">
                             <div class="card-body ">
@@ -351,7 +331,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">February</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##FebruaryCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#FebruaryCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#FebruaryCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="FebruaryCard" class="collapse hide">
                             <div class="card-body ">
@@ -374,7 +354,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">March</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##MarchCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#MarchCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#MarchCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="MarchCard" class="collapse hide">
                             <div class="card-body ">
@@ -397,7 +377,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">April</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##AprilCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#AprilCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#AprilCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="AprilCard" class="collapse hide">
                             <div class="card-body ">
@@ -427,7 +407,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">May</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##MayCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#MayCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#MayCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="MayCard" class="collapse hide">
                             <div class="card-body ">
@@ -450,7 +430,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">June</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##JuneCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#JuneCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#JuneCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="JuneCard" class="collapse hide">
                             <div class="card-body ">
@@ -473,7 +453,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">July</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##JulyCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#JulyCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#JulyCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="JulyCard" class="collapse hide">
                             <div class="card-body ">
@@ -496,7 +476,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">August</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##AugustCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#AugustCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#AugustCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="AugustCard" class="collapse hide">
                             <div class="card-body ">
@@ -525,7 +505,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">September</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##SeptemberCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#SeptemberCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#SeptemberCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="SeptemberCard" class="collapse hide">
                             <div class="card-body ">
@@ -548,7 +528,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">October</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##OctoberCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#OctoberCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#OctoberCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="OctoberCard" class="collapse hide">
                             <div class="card-body ">
@@ -571,7 +551,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">November</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##NovemberCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#NovemberCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#NovemberCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="NovemberCard" class="collapse hide">
                             <div class="card-body ">
@@ -594,7 +574,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                         <h5><strong class="d-inline-block mb-2 text-primary">December</strong></h5>
                         <h6>Report Count <span class="badge badge-primary">##DecemberCount##</span></h6>
                         <div class="spacer10"></div>
-                        <a data-toggle="collapse" href="#DecemberCard" aria-expanded="true" class="d-block"> View
+                        <a data-bs-toggle="collapse" href="#DecemberCard" aria-expanded="true" class="d-block"> View
                             Reports </a>
                         <div id="DecemberCard" class="collapse hide">
                             <div class="card-body ">
@@ -629,6 +609,8 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
         $('.DecemberList').load("/emails/data/dec_rpt.html?rnd=" + Math.random());
     });
 </script>
+
+{% endblock %}
 
 HTMLOUTPUTINDEXDASHBOARD
 
@@ -866,7 +848,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#PerDayTrafficSummary" role="button" aria-expanded="false" aria-controls="PerDayTrafficSummary">
+            <a data-bs-toggle="collapse" href="#PerDayTrafficSummary" role="button" aria-expanded="false" aria-controls="PerDayTrafficSummary">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Per-Day Traffic Summary</h6>
             </a>
             <div class="container collapse" id="PerDayTrafficSummary">
@@ -895,7 +877,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#PerHourTrafficDailyAverage" role="button" aria-expanded="false"
+            <a data-bs-toggle="collapse" href="#PerHourTrafficDailyAverage" role="button" aria-expanded="false"
                 aria-controls="PerHourTrafficDailyAverage">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Per-Hour Traffic Daily Average</h6>
             </a>
@@ -926,7 +908,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#HostDomainSummaryMessagesReceived" role="button" aria-expanded="false"
+            <a data-bs-toggle="collapse" href="#HostDomainSummaryMessagesReceived" role="button" aria-expanded="false"
                 aria-controls="HostDomainSummaryMessagesReceived">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Messages Received</h6>
             </a>
@@ -953,7 +935,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#SendersbyMessageSize" role="button" aria-expanded="false" aria-controls="SendersbyMessageSize">
+            <a data-bs-toggle="collapse" href="#SendersbyMessageSize" role="button" aria-expanded="false" aria-controls="SendersbyMessageSize">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Senders by Message Size</h6>
             </a>
             <div class="container collapse" id="SendersbyMessageSize">
@@ -978,7 +960,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#SendersbyMessageCount" role="button" aria-expanded="false" aria-controls="SendersbyMessageCount">
+            <a data-bs-toggle="collapse" href="#SendersbyMessageCount" role="button" aria-expanded="false" aria-controls="SendersbyMessageCount">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Senders by Message Count</h6>
             </a>
             <div class="container collapse" id="SendersbyMessageCount">
@@ -1003,7 +985,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#RecipientsbyMessageCount" role="button" aria-expanded="false"
+            <a data-bs-toggle="collapse" href="#RecipientsbyMessageCount" role="button" aria-expanded="false"
                 aria-controls="RecipientsbyMessageCount">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Recipients by Message Count</h6>
             </a>
@@ -1030,7 +1012,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#HostDomainSummaryMessageDelivery" role="button" aria-expanded="false"
+            <a data-bs-toggle="collapse" href="#HostDomainSummaryMessageDelivery" role="button" aria-expanded="false"
                 aria-controls="HostDomainSummaryMessageDelivery">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Message Delivery</h6>
             </a>
@@ -1061,7 +1043,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#Recipientsbymessagesize" role="button" aria-expanded="false" aria-controls="Recipientsbymessagesize">
+            <a data-bs-toggle="collapse" href="#Recipientsbymessagesize" role="button" aria-expanded="false" aria-controls="Recipientsbymessagesize">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Recipients by message size</h6>
             </a>
             <div class="container collapse" id="Recipientsbymessagesize">
@@ -1086,7 +1068,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#Messageswithnosizedata" role="button" aria-expanded="false" aria-controls="Messageswithnosizedata">
+            <a data-bs-toggle="collapse" href="#Messageswithnosizedata" role="button" aria-expanded="false" aria-controls="Messageswithnosizedata">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Messages with no size data</h6>
             </a>
             <div class="container collapse" id="Messageswithnosizedata">
@@ -1112,7 +1094,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#MessageDeferralDetail" role="button" aria-expanded="false" aria-controls="MessageDeferralDetail">
+            <a data-bs-toggle="collapse" href="#MessageDeferralDetail" role="button" aria-expanded="false" aria-controls="MessageDeferralDetail">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Message Deferral Detail</h6>
             </a>
             <div class="container collapse" id="MessageDeferralDetail">
@@ -1133,7 +1115,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#MessageBounceDetailbyrelay" role="button" aria-expanded="false"
+            <a data-bs-toggle="collapse" href="#MessageBounceDetailbyrelay" role="button" aria-expanded="false"
                 aria-controls="MessageBounceDetailbyrelay">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Message Bounce Detail (By Relay)</h6>
             </a>
@@ -1153,7 +1135,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#MailWarnings" role="button" aria-expanded="false" aria-controls="MailWarnings">
+            <a data-bs-toggle="collapse" href="#MailWarnings" role="button" aria-expanded="false" aria-controls="MailWarnings">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Mail Warnings</h6>
             </a>
             <div class="container collapse" id="MailWarnings">
@@ -1172,7 +1154,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         </div>
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-toggle="collapse" href="#MailFatalErrors" role="button" aria-expanded="false" aria-controls="MailFatalErrors">
+            <a data-bs-toggle="collapse" href="#MailFatalErrors" role="button" aria-expanded="false" aria-controls="MailFatalErrors">
                 <h6 class="border-bottom border-gray pb-2 mb-0">Mail Fatal Errors</h6>
             </a>
             <div class="container collapse" id="MailFatalErrors">
