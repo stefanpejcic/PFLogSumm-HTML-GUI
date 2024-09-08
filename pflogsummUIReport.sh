@@ -624,70 +624,51 @@ HTMLOUTPUTINDEXDASHBOARD
 #2018-Nov-17.html
 
 cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTMLREPORTDASHBOARD'
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Postfix Report">
-    <meta name="author" content="">
-    <link rel="icon" href="http://www.postfix.org/favicon.ico">
+{% block content %}
 
-    <title>Postfix PFLOGSUMM Report</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.css">
-
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
 
 
-    <style>
-        body {
-            padding-top: 5rem;
-        }
-
-        footer {
-            background-color: #eee;
-            padding: 25px;
-        }
-
-        .spacer15 {
-            height: 15px;
-        }
-    </style>
-
-</head>
-
-<body>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="../">Postfix Report</a>
-    </nav>
-
-
-    <!-- Server/Report INFO -->
-    <div class="container rounded shadow-sm  p-3 my-3 text-white-50 bg-dark ">
-        <div class="row">
-            <div class="card-body">
-                <div class="row mb-4">
-                    <div class="col-sm-12">
-                        <div> <strong>Hostname</strong> </div>
-                        <h6 class="mb-3">##ACTIVEHOSTNAME##</h6>
-                        <div> <strong>Report Date</strong> </div>
-                        <div>##REPORTDATE##</div>
-                        <div class="spacer15"></div>
-                        <div>This report exposes email addresses of end users / Please password protect this resource</div>
-                    </div>
+<!-- Page header -->
+<div class="page-header mt-0 d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                    Emails
+                </div>
+                <h2 class="page-title">
+                    Generated Report
+                </h2>
+            </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto mt-0 d-print-none">
+                <div class="">
+                Report Date: <b>##REPORTDATE##</b>
+                <br>
+                Hostname: <b>##ACTIVEHOSTNAME##</b>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Server/Report INFO -->
+</div>
 
-    <br>
+    <div class="page-body">
+
 
     <!-- Quick Status Blocks -->
     <div class="container rounded shadow-sm  text-white bg-dark ">
@@ -1175,37 +1156,12 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
 
-
-
-    <br>
-
-
-    <!-- Footer -->
-    <footer class="container-fluid bg-dark text-center text-white-50">
-        <div class="copyrights" style="margin-top:5px;">
-            <p>&copy;
-                <script>new Date().getFullYear() > 2010 && document.write(new Date().getFullYear());</script>
-                <br>
-                <span>Powered by <a href="https://github.com/KTamas/pflogsumm">PFLOGSUMM</a> </span> /
-                <span><a href="https://github.com/RiaanPretoriusSA/PFLogSumm-HTML-GUI">PFLOGSUMM HTML UI Report</a>
-                </span>
-            </p>
-        </div>
-    </footer>
-
-
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
-
 
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
@@ -1300,9 +1256,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         });
     </script>
 
-</body>
-
-</html>
+{% endblock %}
 HTMLREPORTDASHBOARD
 
 
