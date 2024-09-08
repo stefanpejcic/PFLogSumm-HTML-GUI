@@ -832,9 +832,9 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
 
-    <div class="container rounded shadow-sm  p-3 my-3 ">
+    <div class="container p-4 ">
 
-        <div class="my-3 p-3 bg-white  rounded shadow-sm">
+        <div>
             <h3 class="border-bottom border-gray pb-2 mb-0">Graphs</h6>
 
 
