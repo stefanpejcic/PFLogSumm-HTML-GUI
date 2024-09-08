@@ -41,7 +41,7 @@ tee ${PFSYSCONFDIR}/"pflogsumui.conf" <<EOF
 #PFLOGSUMUI CONFIG
 
 ##  Postfix Log Location
-LOGFILELOCATION="/var/log/maillog"
+LOGFILELOCATION="/var/log/mail/mail.log"
 
 ##  pflogsumm details
 ##  NOTE: DONT USE -d today - breaks the script
@@ -49,7 +49,7 @@ PFLOGSUMMOPTIONS=" --verbose_msg_detail --zero_fill "
 PFLOGSUMMBIN="/usr/sbin/pflogsumm  "
 
 ##  HTML Output
-HTMLOUTPUTDIR="/var/www/html/"
+HTMLOUTPUTDIR="/usr/local/mail/openmail/reports/"
 HTMLOUTPUT_INDEXDASHBOARD="index.html"
 
 EOF
