@@ -808,7 +808,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
 
-<div class="row row-deck row-cards">
+<div class="row row-deck row-cards p-4">
 
               <div class="col-lg-6">
                 <div class="card">
@@ -846,7 +846,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive" id="PerDayTrafficSummaryTable">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Date</th>
@@ -876,7 +876,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive" id="PerHourTrafficDailyAverageTable">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Time</th>
@@ -907,7 +907,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Message Count</th>
@@ -933,7 +933,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Size</th>
@@ -958,7 +958,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Message Count</th>
@@ -984,7 +984,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Message Count</th>
@@ -1011,7 +1011,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Sent Count</th>
@@ -1041,7 +1041,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Size</th>
@@ -1066,7 +1066,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <div class="row">
                     <div class="col-md-12">
                         <div class="table-responsive">
-                            <table class="table-responsive table-striped table-sm">
+                            <table class="table table-responsive table-striped table-sm">
                                 <thead>
                                     <tr>
                                         <th scope="col">Queue ID</th>
