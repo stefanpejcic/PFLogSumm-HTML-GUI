@@ -673,106 +673,52 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
     <!-- Quick Status Blocks -->
     <div class="container rounded shadow-sm  text-white bg-dark ">
         <!-- Row -->
-        <div class="row counter-box text-center">
+        <div class="row counter-box text-center p-4">
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##ReceivedEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Received Email</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##ReceivedEmail##</span></h3>
+                    <span>Received Email</span>
                 </div>
             </div>
             <!-- column  -->
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##DeliveredEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Delivered Mail</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##DeliveredEmail##</span></h3>
+                    <span>Delivered Mail</span>
                 </div>
             </div>
             <!-- column  -->
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##ForwardedEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Forwarded Mail</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##ForwardedEmail##</span></h3>
+                    <span>Forwarded Mail</span>
                 </div>
             </div>
             <!-- column  -->
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##DeferredEmailCount##</span></h5>
-                    <span style="font-size: 0.85em;">Deferred ##DeferredEmailDeferralsCount##</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##DeferredEmailCount##</span></h3>
+                    <span>Deferred ##DeferredEmailDeferralsCount##</span>
                 </div>
             </div>
             <!-- column  -->
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##BouncedEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Bounced Mail</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##BouncedEmail##</span></h3>
+                    <span>Bounced Mail</span>
                 </div>
             </div>
             <!-- column  -->
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##RejectedWarningsEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Rejected Warning ##RejectedEmailPercentage##</span>
-                </div>
-            </div>
-            <!-- column  -->
-        </div>
-
-        <div class="spacer15"></div>
-
-        <!-- Row -->
-        <div class="row counter-box text-center">
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##RejectedEmailCount##</span></h5>
-                    <span style="font-size: 0.85em;">Rejected Mail ##RejectedEmailPercentage##</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##HeldEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Held Mail</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##DiscardedEmailCount##</span></h5>
-                    <span style="font-size: 0.85em;">Discarded Mail ##DiscardedEmailPercentage##</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##BytesReceivedEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Bytes Received</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##BytesDeliveredEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Bytes Delivered</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##SendersEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Mail Senders</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##RejectedWarningsEmail##</span></h3>
+                    <span>Rejected Warning ##RejectedEmailPercentage##</span>
                 </div>
             </div>
             <!-- column  -->
@@ -781,20 +727,74 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <div class="spacer15"></div>
 
         <!-- Row -->
-        <div class="row counter-box text-center">
+        <div class="row counter-box text-center p-4">
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##SendingHostsDomainsEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Sending Hosts/Domains</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##RejectedEmailCount##</span></h3>
+                    <span>Rejected Mail ##RejectedEmailPercentage##</span>
                 </div>
             </div>
             <!-- column  -->
             <!-- column  -->
             <div class="col-lg-2 col-6">
                 <div class="">
-                    <h5 class="font-mute text-mute"><span class="counter font-weight-bold">##RecipientsEmail##</span></h5>
-                    <span style="font-size: 0.85em;">Mail Recipients</span>
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##HeldEmail##</span></h5>
+                    <span>Held Mail</span>
+                </div>
+            </div>
+            <!-- column  -->
+            <!-- column  -->
+            <div class="col-lg-2 col-6">
+                <div class="">
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##DiscardedEmailCount##</span></h3>
+                    <span>Discarded Mail ##DiscardedEmailPercentage##</span>
+                </div>
+            </div>
+            <!-- column  -->
+            <!-- column  -->
+            <div class="col-lg-2 col-6">
+                <div class="">
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##BytesReceivedEmail##</span></h3>
+                    <span>Bytes Received</span>
+                </div>
+            </div>
+            <!-- column  -->
+            <!-- column  -->
+            <div class="col-lg-2 col-6">
+                <div class="">
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##BytesDeliveredEmail##</span></h3>
+                    <span>Bytes Delivered</span>
+                </div>
+            </div>
+            <!-- column  -->
+            <!-- column  -->
+            <div class="col-lg-2 col-6">
+                <div class="">
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##SendersEmail##</span></h3>
+                    <span>Mail Senders</span>
+                </div>
+            </div>
+            <!-- column  -->
+        </div>
+
+        <div class="spacer15"></div>
+
+        <!-- Row -->
+        <div class="row counter-box text-center p-4">
+            <!-- column  -->
+            <div class="col-lg-2 col-6">
+                <div class="">
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##SendingHostsDomainsEmail##</span></h3>
+                    <span>Sending Hosts/Domains</span>
+                </div>
+            </div>
+            <!-- column  -->
+            <!-- column  -->
+            <div class="col-lg-2 col-6">
+                <div class="">
+                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##RecipientsEmail##</span></h3>
+                    <span>Mail Recipients</span>
                 </div>
             </div>
             <!-- column  -->
@@ -805,32 +805,42 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
 
+
+
+
+<div class="row row-deck row-cards">
+
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div id="PerDayTrafficSummaryTableGraph" style="width: auto; height: 400px; "></div>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div id="PerHourTrafficDailyAverageTableGraph" style="width: auto; height: 400px;"></div>
+                  </div>
+                </div>
+              </div>
+
+</div>
+
+
+
+
     <div class="container rounded shadow-sm  p-3 my-3 ">
 
         <div class="my-3 p-3 bg-white  rounded shadow-sm">
-            <h6 class="border-bottom border-gray pb-2 mb-0">Graphs</h6>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="PerDayTrafficSummaryTableGraph" style="width: auto; height: 400px; "></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="PerHourTrafficDailyAverageTableGraph" style="width: auto; height: 400px;"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <h3 class="border-bottom border-gray pb-2 mb-0">Graphs</h6>
 
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#PerDayTrafficSummary" role="button" aria-expanded="false" aria-controls="PerDayTrafficSummary">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Per-Day Traffic Summary</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Per-Day Traffic Summary</h6>
             </a>
             <div class="container collapse" id="PerDayTrafficSummary">
                 <div class="row">
@@ -860,7 +870,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#PerHourTrafficDailyAverage" role="button" aria-expanded="false"
                 aria-controls="PerHourTrafficDailyAverage">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Per-Hour Traffic Daily Average</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Per-Hour Traffic Daily Average</h6>
             </a>
             <div class="container collapse" id="PerHourTrafficDailyAverage">
                 <div class="row">
@@ -891,7 +901,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#HostDomainSummaryMessagesReceived" role="button" aria-expanded="false"
                 aria-controls="HostDomainSummaryMessagesReceived">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Messages Received</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Messages Received</h6>
             </a>
             <div class="container collapse" id="HostDomainSummaryMessagesReceived">
                 <div class="row">
@@ -917,7 +927,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#SendersbyMessageSize" role="button" aria-expanded="false" aria-controls="SendersbyMessageSize">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Senders by Message Size</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Senders by Message Size</h6>
             </a>
             <div class="container collapse" id="SendersbyMessageSize">
                 <div class="row">
@@ -942,7 +952,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#SendersbyMessageCount" role="button" aria-expanded="false" aria-controls="SendersbyMessageCount">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Senders by Message Count</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Senders by Message Count</h6>
             </a>
             <div class="container collapse" id="SendersbyMessageCount">
                 <div class="row">
@@ -968,7 +978,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#RecipientsbyMessageCount" role="button" aria-expanded="false"
                 aria-controls="RecipientsbyMessageCount">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Recipients by Message Count</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Recipients by Message Count</h6>
             </a>
             <div class="container collapse" id="RecipientsbyMessageCount">
                 <div class="row">
@@ -995,7 +1005,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#HostDomainSummaryMessageDelivery" role="button" aria-expanded="false"
                 aria-controls="HostDomainSummaryMessageDelivery">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Message Delivery</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Message Delivery</h6>
             </a>
             <div class="container collapse" id="HostDomainSummaryMessageDelivery">
                 <div class="row">
@@ -1025,7 +1035,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#Recipientsbymessagesize" role="button" aria-expanded="false" aria-controls="Recipientsbymessagesize">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Recipients by message size</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Recipients by message size</h6>
             </a>
             <div class="container collapse" id="Recipientsbymessagesize">
                 <div class="row">
@@ -1050,7 +1060,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#Messageswithnosizedata" role="button" aria-expanded="false" aria-controls="Messageswithnosizedata">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Messages with no size data</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Messages with no size data</h6>
             </a>
             <div class="container collapse" id="Messageswithnosizedata">
                 <div class="row">
@@ -1076,7 +1086,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#MessageDeferralDetail" role="button" aria-expanded="false" aria-controls="MessageDeferralDetail">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Message Deferral Detail</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Message Deferral Detail</h6>
             </a>
             <div class="container collapse" id="MessageDeferralDetail">
                 <div class="row">
@@ -1098,7 +1108,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#MessageBounceDetailbyrelay" role="button" aria-expanded="false"
                 aria-controls="MessageBounceDetailbyrelay">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Message Bounce Detail (By Relay)</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Message Bounce Detail (By Relay)</h6>
             </a>
             <div class="container collapse" id="MessageBounceDetailbyrelay">
                 <div class="row">
@@ -1117,7 +1127,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#MailWarnings" role="button" aria-expanded="false" aria-controls="MailWarnings">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Mail Warnings</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Mail Warnings</h6>
             </a>
             <div class="container collapse" id="MailWarnings">
                 <div class="row">
@@ -1136,7 +1146,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <div class="my-3 p-3 bg-white rounded shadow-sm">
             <a data-bs-toggle="collapse" href="#MailFatalErrors" role="button" aria-expanded="false" aria-controls="MailFatalErrors">
-                <h6 class="border-bottom border-gray pb-2 mb-0">Mail Fatal Errors</h6>
+                <h3 class="border-bottom border-gray pb-2 mb-0">Mail Fatal Errors</h6>
             </a>
             <div class="container collapse" id="MailFatalErrors">
                 <div class="row">
