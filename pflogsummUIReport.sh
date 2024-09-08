@@ -49,7 +49,7 @@ PFLOGSUMMOPTIONS=" --verbose_msg_detail --zero_fill "
 PFLOGSUMMBIN="/usr/sbin/pflogsumm  "
 
 ##  HTML Output
-HTMLOUTPUTDIR="/usr/local/mail/openmail/reports/"
+HTMLOUTPUTDIR="/usr/local/mail/openmail/reports"
 HTMLOUTPUT_INDEXDASHBOARD="index.html"
 
 EOF
