@@ -281,7 +281,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                     Emails
                 </div>
                 <h2 class="page-title">
-                    Generated Reports
+                    Summary Reports
                 </h2>
             </div>
             <!-- Page title actions -->
@@ -652,7 +652,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                     Emails
                 </div>
                 <h2 class="page-title">
-                    Generated Report
+                    Summary Report
                 </h2>
             </div>
             <!-- Page title actions -->
