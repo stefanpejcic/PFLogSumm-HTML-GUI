@@ -666,7 +666,7 @@ HTMLOUTPUTINDEXDASHBOARD
 #======================================================
 #2018-Nov-17.html
 
-cat > $HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html << 'HTMLREPORTDASHBOARD'
+cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTMLREPORTDASHBOARD'
 <!doctype html>
 <html lang="en">
 
