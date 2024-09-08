@@ -250,48 +250,54 @@ $MOVEF  /tmp/Messageswithnosizedata_tmp /tmp/Messageswithnosizedata  &> /dev/nul
 #======================================================
 
 cat > $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
-<!doctype html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Postfix PFLOGSUMM Dashboard Index">
-    <meta name="author" content="Riaan Pretorius">
-    <link rel="icon" href="http://www.postfix.org/favicon.ico">
+{% block content %}
 
-    <title>Postfix PFLOGSUMM Dashboard Index</title>
+<div>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+<!-- Page header -->
+<div class="page-header mt-0 d-print-none">
+    <div class="container-xl">
+        <div class="row g-2 align-items-center">
+            <div class="col">
+                <!-- Page pre-title -->
+                <div class="page-pretitle">
+                    Emails
+                </div>
+                <h2 class="page-title">
+                    Generated Reports
+                </h2>
+            </div>
+            <!-- Page title actions -->
+            <div class="col-auto ms-auto mt-0 d-print-none">
+                <div class="btn-list">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     <style>
-        body {
-            padding-top: 5rem;
-        }
-
-        footer {
-            background-color: #eee;
-            padding: 25px;
-        }
-
         .spacer10 {
             height: 10px;
         }
     </style>
 
 </head>
-
-<body>
-
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="#">Postfix PFLOGSUMM Dashboard</a>
-    </nav>
-
-
-
 
     <div class="container">
 
@@ -603,58 +609,23 @@ cat > $HTMLOUTPUTDIR/$HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 
     </div>
 
-
-
-    <br>
-
-    <!-- Footer -->
-    <footer class="container-fluid bg-dark text-center text-white-50">
-        <div class="copyrights" style="margin-top:5px;">
-            <p>&copy;
-                <script>new Date().getFullYear() > 2010 && document.write(new Date().getFullYear());</script>
-                <br>
-                <span>Powered by <a href="https://github.com/KTamas/pflogsumm">PFLOGSUMM</a> </span> /
-                <span><a href="https://github.com/RiaanPretoriusSA/PFLogSumm-HTML-GUI">PFLOGSUMM HTML UI Report</a>
-                </span>
-            </p>
-        </div>
-    </footer>
-    <!-- Footer -->
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/umd/popper.min.js"></script>
-
-</body>
-
-
 <script>
     $(document).ready(function () {
-        $('.JanuaryList').load("data/jan_rpt.html?rnd=" + Math.random());
-        $('.FebruaryList').load("data/feb_rpt.html?rnd=" + Math.random());
-        $('.MarchList').load("data/mar_rpt.html?rnd=" + Math.random());
-        $('.AprilList').load("data/apr_rpt.html?rnd=" + Math.random());
-        $('.MayList').load("data/may_rpt.html?rnd=" + Math.random());
-        $('.JuneList').load("data/jun_rpt.html?rnd=" + Math.random());
-        $('.JulyList').load("data/jul_rpt.html?rnd=" + Math.random());
-        $('.AugustList').load("data/aug_rpt.html?rnd=" + Math.random());
-        $('.SeptemberList').load("data/sep_rpt.html?rnd=" + Math.random());
-        $('.OctoberList').load("data/oct_rpt.html?rnd=" + Math.random());
-        $('.NovemberList').load("data/nov_rpt.html?rnd=" + Math.random());
-        $('.DecemberList').load("data/dec_rpt.html?rnd=" + Math.random());
+        $('.JanuaryList').load("/static/reports/data/jan_rpt.html?rnd=" + Math.random());
+        $('.FebruaryList').load("/static/reports/data/feb_rpt.html?rnd=" + Math.random());
+        $('.MarchList').load("/static/reports/data/mar_rpt.html?rnd=" + Math.random());
+        $('.AprilList').load("/static/reports/data/apr_rpt.html?rnd=" + Math.random());
+        $('.MayList').load("/static/reports/data/may_rpt.html?rnd=" + Math.random());
+        $('.JuneList').load("/static/reports/data/jun_rpt.html?rnd=" + Math.random());
+        $('.JulyList').load("/static/reports/data/jul_rpt.html?rnd=" + Math.random());
+        $('.AugustList').load("/static/reports/data/aug_rpt.html?rnd=" + Math.random());
+        $('.SeptemberList').load("/static/reports/data/sep_rpt.html?rnd=" + Math.random());
+        $('.OctoberList').load("/static/reports/data/oct_rpt.html?rnd=" + Math.random());
+        $('.NovemberList').load("/static/reports/data/nov_rpt.html?rnd=" + Math.random());
+        $('.DecemberList').load("/static/reports/data/dec_rpt.html?rnd=" + Math.random());
     });
 </script>
 
-
-
-</body>
-
-</html>
 HTMLOUTPUTINDEXDASHBOARD
 
 
