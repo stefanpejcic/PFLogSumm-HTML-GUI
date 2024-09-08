@@ -615,18 +615,18 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 
 <script>
     $(document).ready(function () {
-        $('.JanuaryList').load("/static/reports/data/jan_rpt.html?rnd=" + Math.random());
-        $('.FebruaryList').load("/static/reports/data/feb_rpt.html?rnd=" + Math.random());
-        $('.MarchList').load("/static/reports/data/mar_rpt.html?rnd=" + Math.random());
-        $('.AprilList').load("/static/reports/data/apr_rpt.html?rnd=" + Math.random());
-        $('.MayList').load("/static/reports/data/may_rpt.html?rnd=" + Math.random());
-        $('.JuneList').load("/static/reports/data/jun_rpt.html?rnd=" + Math.random());
-        $('.JulyList').load("/static/reports/data/jul_rpt.html?rnd=" + Math.random());
-        $('.AugustList').load("/static/reports/data/aug_rpt.html?rnd=" + Math.random());
-        $('.SeptemberList').load("/static/reports/data/sep_rpt.html?rnd=" + Math.random());
-        $('.OctoberList').load("/static/reports/data/oct_rpt.html?rnd=" + Math.random());
-        $('.NovemberList').load("/static/reports/data/nov_rpt.html?rnd=" + Math.random());
-        $('.DecemberList').load("/static/reports/data/dec_rpt.html?rnd=" + Math.random());
+        $('.JanuaryList').load("/emails/data/jan_rpt.html?rnd=" + Math.random());
+        $('.FebruaryList').load("/emails/data/feb_rpt.html?rnd=" + Math.random());
+        $('.MarchList').load("/emails/data/mar_rpt.html?rnd=" + Math.random());
+        $('.AprilList').load("/emails/data/apr_rpt.html?rnd=" + Math.random());
+        $('.MayList').load("/emails/data/may_rpt.html?rnd=" + Math.random());
+        $('.JuneList').load("/emails/data/jun_rpt.html?rnd=" + Math.random());
+        $('.JulyList').load("/emails/data/jul_rpt.html?rnd=" + Math.random());
+        $('.AugustList').load("/emails/data/aug_rpt.html?rnd=" + Math.random());
+        $('.SeptemberList').load("/emails/data/sep_rpt.html?rnd=" + Math.random());
+        $('.OctoberList').load("/emails/data/oct_rpt.html?rnd=" + Math.random());
+        $('.NovemberList').load("/emails/data/nov_rpt.html?rnd=" + Math.random());
+        $('.DecemberList').load("/emails/data/dec_rpt.html?rnd=" + Math.random());
     });
 </script>
 
