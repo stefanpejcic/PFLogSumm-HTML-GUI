@@ -50,7 +50,7 @@ fi
 
 #Custom Log file(s)
 if [[ -z "${CUSTOMLOG}" ]]; then
-    LOGFILELOCATION="/var/log/maillog"
+    LOGFILELOCATION="/var/log/mail.log"
 else
     LOGFILELOCATION=${CUSTOMLOG}
 fi
