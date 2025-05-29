@@ -257,356 +257,69 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 
 {% block content %}
 
-<div>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
+<!-- Page Header -->
+<div class="border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-950 sm:p-6 lg:p-8">
+    <header>
+        <div class="flex flex-col gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:text-start">
+            <div class="grow">
+                <h1 class="mb-1 text-xl font-bold">Summary Reports</h1>
+                <h2 class="text-sm font-medium text-slate-500"></h2>
+            </div>
+            <div class="flex flex-none text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
+              <div>Last Update: <b>##REPORTDATE##</b></div>
+              <div>Server: <b>##ACTIVEHOSTNAME##</b></div>
+            </div>
+        </div>
+    </header>
 </div>
 
 
-<!-- Page header -->
-<div class="page-header mt-0 d-print-none">
-    <div class="container-xl">
-        <div class="row g-2 align-items-center">
-            <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Emails
+<!-- Reports -->
+<div class="container mx-auto px-4 py-6 space-y-8">
+    {% for month in [
+        'January', 'February', 'March', 'April',
+        'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'
+    ] %}
+        <div class="bg-white rounded-lg shadow p-6" x-data="{ open: false }">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h3 class="text-xl font-semibold">{{ month }}</h3>
+                    <p class="text-sm text-gray-500 mt-1">Report Count:
+                        <span class="ml-1 inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
+                            ##{{ month }}Count##
+                        </span>
+                    </p>
                 </div>
-                <h2 class="page-title">
-                    Summary Reports
-                </h2>
+                <button @click="open = !open" class="text-blue-600 hover:underline text-sm">
+                    <span x-text="open ? 'Hide Reports' : 'View Reports'"></span>
+                </button>
             </div>
-            <!-- Page title actions -->
-            <div class="col-auto ms-auto mt-0 d-print-none">
-                <div class="">
-                Last Update: <b>##REPORTDATE##</b>
-                <br>
-                Server: <b>##ACTIVEHOSTNAME##</b>
+
+            <div x-show="open" x-collapse class="mt-4">
+                <div class="list-group list-group-flush {{ month }}List">
+                    <!-- Dynamic Item List -->
                 </div>
             </div>
         </div>
-    </div>
+    {% endfor %}
 </div>
-
-    <div class="page-body">
-
-        <div class="row">
-
-            <div class="col-sm">
-
-                <!-- January Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>January</h3>
-                        <h6>Report Count <span class="badge badge-primary">##JanuaryCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#JanuaryCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="JanuaryCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush JanuaryList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- January End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- February Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>February</h3>
-                        <h6>Report Count <span class="badge badge-primary">##FebruaryCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#FebruaryCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="FebruaryCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush FebruaryList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- February End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- March Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>March</h3>
-                        <h6>Report Count <span class="badge badge-primary">##MarchCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#MarchCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="MarchCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush MarchList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- March End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- April Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>April</h3>
-                        <h6>Report Count <span class="badge badge-primary">##AprilCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#AprilCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="AprilCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush AprilList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- April End -->
-
-            </div>
-
-
-        </div>
-
-        <br>
-
-        <div class="row">
-
-            <div class="col-sm">
-
-                <!-- May Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>May</h3>
-                        <h6>Report Count <span class="badge badge-primary">##MayCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#MayCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="MayCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush MayList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- May End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- June Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>June</h3>
-                        <h6>Report Count <span class="badge badge-primary">##JuneCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#JuneCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="JuneCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush JuneList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- June End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- July Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>July</h3>
-                        <h6>Report Count <span class="badge badge-primary">##JulyCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#JulyCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="JulyCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush JulyList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- July End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- August Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>August</h3>
-                        <h6>Report Count <span class="badge badge-primary">##AugustCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#AugustCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="AugustCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush AugustList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- August End -->
-
-            </div>
-
-        </div>
-
-        <br>
-
-        <div class="row">
-
-            <div class="col-sm">
-
-                <!-- September Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>September</h3>
-                        <h6>Report Count <span class="badge badge-primary">##SeptemberCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#SeptemberCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="SeptemberCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush SeptemberList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- September End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- October Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>October</h3>
-                        <h6>Report Count <span class="badge badge-primary">##OctoberCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#OctoberCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="OctoberCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush OctoberList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- October End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- November Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>November</h3>
-                        <h6>Report Count <span class="badge badge-primary">##NovemberCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#NovemberCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="NovemberCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush NovemberList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- November End -->
-
-            </div>
-
-            <div class="col-sm">
-
-                <!-- December Start-->
-                <div class="card flex-md-row mb-4">
-                    <div class="card-body d-flex flex-column align-items-start">
-                        <h3>December</h3>
-                        <h6>Report Count <span class="badge badge-primary">##DecemberCount##</span></h6>
-                        <div class="spacer10"></div>
-                        <a data-bs-toggle="collapse" href="#DecemberCard" aria-expanded="true" class="d-block"> View
-                            Reports </a>
-                        <div id="DecemberCard" class="collapse hide">
-                            <div class="card-body ">
-                                <div class="list-group list-group-flush DecemberList ">
-                                    <!-- Dynamic Item List-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- December End -->
-
-            </div>
-
-        </div>
-
-    </div>
 
 <script>
-    $(document).ready(function () {
-        $('.JanuaryList').load("/emails/data/jan_rpt.html?rnd=" + Math.random());
-        $('.FebruaryList').load("/emails/data/feb_rpt.html?rnd=" + Math.random());
-        $('.MarchList').load("/emails/data/mar_rpt.html?rnd=" + Math.random());
-        $('.AprilList').load("/emails/data/apr_rpt.html?rnd=" + Math.random());
-        $('.MayList').load("/emails/data/may_rpt.html?rnd=" + Math.random());
-        $('.JuneList').load("/emails/data/jun_rpt.html?rnd=" + Math.random());
-        $('.JulyList').load("/emails/data/jul_rpt.html?rnd=" + Math.random());
-        $('.AugustList').load("/emails/data/aug_rpt.html?rnd=" + Math.random());
-        $('.SeptemberList').load("/emails/data/sep_rpt.html?rnd=" + Math.random());
-        $('.OctoberList').load("/emails/data/oct_rpt.html?rnd=" + Math.random());
-        $('.NovemberList').load("/emails/data/nov_rpt.html?rnd=" + Math.random());
-        $('.DecemberList').load("/emails/data/dec_rpt.html?rnd=" + Math.random());
+    document.addEventListener('DOMContentLoaded', () => {
+        const months = [
+            'January', 'February', 'March', 'April',
+            'May', 'June', 'July', 'August',
+            'September', 'October', 'November', 'December'
+        ];
+        months.forEach(month => {
+            document.querySelector(`.${month}List`).innerHTML = '';
+            fetch(`/emails/data/${month.toLowerCase().slice(0, 3)}_rpt.html?rnd=` + Math.random())
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(`.${month}List`).innerHTML = html;
+                });
+        });
     });
 </script>
 
@@ -627,19 +340,6 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 {% extends 'base.html' %}
 
 {% block content %}
-
-<div>
-    {% with messages = get_flashed_messages() %}
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-warning alert-dismissible" role="alert">
-                    {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-</div>
 
 
 <!-- Page header -->
