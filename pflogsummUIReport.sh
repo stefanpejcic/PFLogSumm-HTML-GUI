@@ -341,537 +341,26 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 {% block content %}
 
-
-<!-- Page header -->
-<div class="page-header mt-0 d-print-none">
-    <div class="container-xl">
-        <div class="row g-2 align-items-center">
-            <div class="col">
-                <!-- Page pre-title -->
-                <div class="page-pretitle">
-                    Emails
-                </div>
-                <h2 class="page-title">
-                    Summary Report
-                </h2>
+<!-- Page Header -->
+<div class="border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-950 sm:p-6 lg:p-8">
+    <header>
+        <div class="flex flex-col gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:text-start">
+            <div class="grow">
+                <h1 class="mb-1 text-xl font-bold">Summary Reports</h1>
+                <h2 class="text-sm font-medium text-slate-500"></h2>
             </div>
-            <!-- Page title actions -->
-            <div class="col-auto ms-auto mt-0 d-print-none">
-                <div class="">
-                Report Date: <b>##REPORTDATE##</b>
-                <br>
-                Hostname: <b>##ACTIVEHOSTNAME##</b>
-                </div>
+            <div class="flex flex-none text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
+              <div>Report Date: <b>##REPORTDATE##</b></div>
+              <div>Hostname: <b>##ACTIVEHOSTNAME##</b></div>
             </div>
         </div>
-    </div>
-</div>
-
-    <div class="page-body">
-
-
-    <!-- Quick Status Blocks -->
-    <div class="container rounded shadow-sm  text-white bg-dark ">
-        <!-- Row -->
-        <div class="row counter-box text-center p-4">
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##ReceivedEmail##</span></h3>
-                    <span>Received Email</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##DeliveredEmail##</span></h3>
-                    <span>Delivered Mail</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##ForwardedEmail##</span></h3>
-                    <span>Forwarded Mail</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##DeferredEmailCount##</span></h3>
-                    <span>Deferred ##DeferredEmailDeferralsCount##</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##BouncedEmail##</span></h3>
-                    <span>Bounced Mail</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##RejectedWarningsEmail##</span></h3>
-                    <span>Rejected Warning ##RejectedEmailPercentage##</span>
-                </div>
-            </div>
-            <!-- column  -->
-        </div>
-
-        <div class="spacer15"></div>
-
-        <!-- Row -->
-        <div class="row counter-box text-center p-4">
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##RejectedEmailCount##</span></h3>
-                    <span>Rejected Mail ##RejectedEmailPercentage##</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##HeldEmail##</span></h5>
-                    <span>Held Mail</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##DiscardedEmailCount##</span></h3>
-                    <span>Discarded Mail ##DiscardedEmailPercentage##</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##BytesReceivedEmail##</span></h3>
-                    <span>Bytes Received</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##BytesDeliveredEmail##</span></h3>
-                    <span>Bytes Delivered</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##SendersEmail##</span></h3>
-                    <span>Mail Senders</span>
-                </div>
-            </div>
-            <!-- column  -->
-        </div>
-
-        <div class="spacer15"></div>
-
-        <!-- Row -->
-        <div class="row counter-box text-center p-4">
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##SendingHostsDomainsEmail##</span></h3>
-                    <span>Sending Hosts/Domains</span>
-                </div>
-            </div>
-            <!-- column  -->
-            <!-- column  -->
-            <div class="col-lg-2 col-6">
-                <div class="">
-                    <h3 class="font-mute text-mute"><span class="counter font-weight-bold">##RecipientsEmail##</span></h3>
-                    <span>Mail Recipients</span>
-                </div>
-            </div>
-            <!-- column  -->
-
-        </div>
-        <!-- Quick Status Blocks -->
-    </div>
-
-
-
-
-
-
-<div class="row row-deck row-cards p-4">
-
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div id="PerDayTrafficSummaryTableGraph" style="width: auto; height: 400px; "></div>
-                  </div>
-                </div>
-              </div>
-
-              
-              <div class="col-lg-6">
-                <div class="card">
-                  <div class="card-body">
-                    <div id="PerHourTrafficDailyAverageTableGraph" style="width: auto; height: 400px;"></div>
-                  </div>
-                </div>
-              </div>
-
+    </header>
 </div>
 
 
 
 
-    <div class="container p-4 ">
 
-        <div>
-            <h3 class="border-bottom border-gray pb-2 mb-0">Graphs</h6>
-
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#PerDayTrafficSummary" role="button" aria-expanded="false" aria-controls="PerDayTrafficSummary">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Per-Day Traffic Summary</h6>
-            </a>
-            <div class="container collapse" id="PerDayTrafficSummary">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive" id="PerDayTrafficSummaryTable">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Received</th>
-                                        <th scope="col">Delivered</th>
-                                        <th scope="col">Deferred</th>
-                                        <th scope="col">Bounced</th>
-                                        <th scope="col">Rejected</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##PerDayTrafficSummaryTable##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#PerHourTrafficDailyAverage" role="button" aria-expanded="false"
-                aria-controls="PerHourTrafficDailyAverage">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Per-Hour Traffic Daily Average</h6>
-            </a>
-            <div class="container collapse" id="PerHourTrafficDailyAverage">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive" id="PerHourTrafficDailyAverageTable">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Time</th>
-                                        <th scope="col">Received</th>
-                                        <th scope="col">Delivered</th>
-                                        <th scope="col">Deferred</th>
-                                        <th scope="col">Bounced</th>
-                                        <th scope="col">Rejected</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##PerHourTrafficDailyAverageTable##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#HostDomainSummaryMessagesReceived" role="button" aria-expanded="false"
-                aria-controls="HostDomainSummaryMessagesReceived">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Messages Received</h6>
-            </a>
-            <div class="container collapse" id="HostDomainSummaryMessagesReceived">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Message Count</th>
-                                        <th scope="col">Bytes</th>
-                                        <th scope="col">Host/Domain</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##HostDomainSummaryMessagesReceived##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#SendersbyMessageSize" role="button" aria-expanded="false" aria-controls="SendersbyMessageSize">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Senders by Message Size</h6>
-            </a>
-            <div class="container collapse" id="SendersbyMessageSize">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Size</th>
-                                        <th scope="col">Sender</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##SendersbyMessageSize##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#SendersbyMessageCount" role="button" aria-expanded="false" aria-controls="SendersbyMessageCount">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Senders by Message Count</h6>
-            </a>
-            <div class="container collapse" id="SendersbyMessageCount">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Message Count</th>
-                                        <th scope="col">Sender</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##Sendersbymessagecount##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#RecipientsbyMessageCount" role="button" aria-expanded="false"
-                aria-controls="RecipientsbyMessageCount">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Recipients by Message Count</h6>
-            </a>
-            <div class="container collapse" id="RecipientsbyMessageCount">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Message Count</th>
-                                        <th scope="col">Recipient</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##RecipientsbyMessageCount##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#HostDomainSummaryMessageDelivery" role="button" aria-expanded="false"
-                aria-controls="HostDomainSummaryMessageDelivery">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Host/Domain Summary: Message Delivery</h6>
-            </a>
-            <div class="container collapse" id="HostDomainSummaryMessageDelivery">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Sent Count</th>
-                                        <th scope="col">Bytes</th>
-                                        <th scope="col">Defers</th>
-                                        <th scope="col">Average Daily</th>
-                                        <th scope="col">Maximum Daily</th>
-                                        <th scope="col">Host/Domain</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##HostDomainSummaryMessageDelivery##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#Recipientsbymessagesize" role="button" aria-expanded="false" aria-controls="Recipientsbymessagesize">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Recipients by message size</h6>
-            </a>
-            <div class="container collapse" id="Recipientsbymessagesize">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Size</th>
-                                        <th scope="col">Recipient</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##Recipientsbymessagesize##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#Messageswithnosizedata" role="button" aria-expanded="false" aria-controls="Messageswithnosizedata">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Messages with no size data</h6>
-            </a>
-            <div class="container collapse" id="Messageswithnosizedata">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="table-responsive">
-                            <table class="table table-responsive table-striped table-sm">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Queue ID</th>
-                                        <th scope="col">Email Address</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ##Messageswithnosizedata##
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#MessageDeferralDetail" role="button" aria-expanded="false" aria-controls="MessageDeferralDetail">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Message Deferral Detail</h6>
-            </a>
-            <div class="container collapse" id="MessageDeferralDetail">
-                <div class="row">
-                    <div class="col-md-12">
-                        <br>
-                        <div class="pre-scrollable" style="max-height: 40vh; ">
-                            <pre>
-                                    ##MessageDeferralDetail##
-                        </pre>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#MessageBounceDetailbyrelay" role="button" aria-expanded="false"
-                aria-controls="MessageBounceDetailbyrelay">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Message Bounce Detail (By Relay)</h6>
-            </a>
-            <div class="container collapse" id="MessageBounceDetailbyrelay">
-                <div class="row">
-                    <div class="col-md-12">
-                        <br>
-                        <div class="pre-scrollable" style="max-height: 40vh; ">
-                            <pre>
-                                        ##MessageBounceDetailbyrelay##
-                            </pre>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#MailWarnings" role="button" aria-expanded="false" aria-controls="MailWarnings">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Mail Warnings</h6>
-            </a>
-            <div class="container collapse" id="MailWarnings">
-                <div class="row">
-                    <div class="col-md-12">
-                        <br>
-                        <div class="pre-scrollable" style="max-height: 40vh; ">
-                            <pre>
-                                            ##MailWarnings##
-                                </pre>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="my-3 p-3 bg-white rounded shadow-sm">
-            <a data-bs-toggle="collapse" href="#MailFatalErrors" role="button" aria-expanded="false" aria-controls="MailFatalErrors">
-                <h3 class="border-bottom border-gray pb-2 mb-0">Mail Fatal Errors</h6>
-            </a>
-            <div class="container collapse" id="MailFatalErrors">
-                <div class="row">
-                    <div class="col-md-12">
-                        <br>
-                        <div class="pre-scrollable" style="max-height: 40vh; ">
-                            <pre>
-                                        ##MailFatalErrors##
-                                    </pre>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
 
     <!-- Icons -->
     <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
@@ -889,80 +378,128 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
 
 
+    <div class="container mx-auto py-6">
+        <!-- Header -->
+        <div class="mb-6">
+            <p class="text-sm text-gray-600">Emails</p>
+            <h1 class="text-3xl font-bold">Summary Report</h1>
+            <div class="mt-2">
+                <p>Report Date: <strong>##REPORTDATE##</strong></p>
+                <p>Hostname: <strong>##ACTIVEHOSTNAME##</strong></p>
+            </div>
+        </div>
 
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <template x-for="stat in [
+                {label: 'Received Email', value: '##ReceivedEmail##'},
+                {label: 'Delivered Mail', value: '##DeliveredEmail##'},
+                {label: 'Forwarded Mail', value: '##ForwardedEmail##'},
+                {label: `Deferred ##DeferredEmailDeferralsCount##`, value: '##DeferredEmailCount##'},
+                {label: 'Bounced Mail', value: '##BouncedEmail##'},
+                {label: `Rejected Warning ##RejectedEmailPercentage##`, value: '##RejectedWarningsEmail##'},
+                {label: `Rejected Mail ##RejectedEmailPercentage##`, value: '##RejectedEmailCount##'},
+                {label: 'Held Mail', value: '##HeldEmail##'},
+                {label: `Discarded Mail ##DiscardedEmailPercentage##`, value: '##DiscardedEmailCount##'},
+                {label: 'Bytes Received', value: '##BytesReceivedEmail##'},
+                {label: 'Bytes Delivered', value: '##BytesDeliveredEmail##'},
+                {label: 'Mail Senders', value: '##SendersEmail##'},
+                {label: 'Sending Hosts/Domains', value: '##SendingHostsDomainsEmail##'},
+                {label: 'Mail Recipients', value: '##RecipientsEmail##'}
+            ]">
+                <div class="bg-white shadow rounded p-4 text-center">
+                    <div class="text-2xl font-bold" x-text="stat.value"></div>
+                    <div class="text-sm mt-1" x-text="stat.label"></div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Graphs -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+            <div class="bg-white p-4 rounded shadow">
+                <div id="PerDayTrafficSummaryTableGraph" class="h-96 w-full"></div>
+            </div>
+            <div class="bg-white p-4 rounded shadow">
+                <div id="PerHourTrafficDailyAverageTableGraph" class="h-96 w-full"></div>
+            </div>
+        </div>
+
+        <!-- Collapsible Sections -->
+        <div class="space-y-4">
+            <template x-for="section in [
+                { id: 'PerDayTrafficSummary', title: 'Per-Day Traffic Summary', body: '##PerDayTrafficSummaryTable##', headers: ['Date','Received','Delivered','Deferred','Bounced','Rejected'] },
+                { id: 'PerHourTrafficDailyAverage', title: 'Per-Hour Traffic Daily Average', body: '##PerHourTrafficDailyAverageTable##', headers: ['Time','Received','Delivered','Deferred','Bounced','Rejected'] },
+                { id: 'HostDomainSummaryMessagesReceived', title: 'Host/Domain Summary: Messages Received', body: '##HostDomainSummaryMessagesReceived##', headers: ['Message Count','Bytes','Host/Domain'] },
+                { id: 'SendersbyMessageSize', title: 'Senders by Message Size', body: '##SendersbyMessageSize##', headers: ['Size','Sender'] },
+                { id: 'SendersbyMessageCount', title: 'Senders by Message Count', body: '##Sendersbymessagecount##', headers: ['Message Count','Sender'] },
+                { id: 'RecipientsbyMessageCount', title: 'Recipients by Message Count', body: '##RecipientsbyMessageCount##', headers: ['Message Count','Recipient'] },
+                { id: 'HostDomainSummaryMessageDelivery', title: 'Host/Domain Summary: Message Delivery', body: '##HostDomainSummaryMessageDelivery##', headers: ['Sent Count','Bytes','Defers','Average Daily','Maximum Daily','Host/Domain'] },
+                { id: 'Recipientsbymessagesize', title: 'Recipients by message size', body: '##Recipientsbymessagesize##', headers: ['Size','Recipient'] },
+                { id: 'Messageswithnosizedata', title: 'Messages with no size data', body: '##Messageswithnosizedata##', headers: ['Queue ID','Email Address'] },
+                { id: 'MessageDeferralDetail', title: 'Message Deferral Detail', body: '##MessageDeferralDetail##', pre: true },
+                { id: 'MessageBounceDetailbyrelay', title: 'Message Bounce Detail (By Relay)', body: '##MessageBounceDetailbyrelay##', pre: true },
+                { id: 'MailWarnings', title: 'Mail Warnings', body: '##MailWarnings##', pre: true },
+                { id: 'MailFatalErrors', title: 'Mail Fatal Errors', body: '##MailFatalErrors##', pre: true }
+            ]">
+                <div x-data="{ open: false }" class="bg-white p-4 rounded shadow">
+                    <h3 @click="open = !open" class="cursor-pointer text-lg font-semibold border-b pb-2">
+                        <span x-text="section.title"></span>
+                    </h3>
+                    <div x-show="open" x-transition class="mt-2">
+                        <template x-if="!section.pre">
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full text-sm text-left text-gray-700">
+                                    <thead class="bg-gray-100 font-semibold">
+                                        <tr>
+                                            <template x-for="header in section.headers">
+                                                <th class="px-4 py-2" x-text="header"></th>
+                                            </template>
+                                        </tr>
+                                    </thead>
+                                    <tbody x-html="section.body"></tbody>
+                                </table>
+                            </div>
+                        </template>
+                        <template x-if="section.pre">
+                            <pre class="whitespace-pre-wrap overflow-auto max-h-96" x-html="section.body"></pre>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
 
     <script>
-
         Highcharts.chart('PerDayTrafficSummaryTableGraph', {
-            data: {
-                table: 'PerDayTrafficSummaryTable'
-            },
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Per-Day Traffic Summary'
-            },
+            data: { table: 'PerDayTrafficSummaryTable' },
+            chart: { type: 'line' },
+            title: { text: 'Per-Day Traffic Summary' },
             yAxis: {
                 allowDecimals: false,
-                title: {
-                    text: 'Units'
-                }
+                title: { text: 'Units' }
             },
-
             plotOptions: {
                 line: {
-                    dataLabels: {
-                        enabled: true
-                    },
+                    dataLabels: { enabled: true },
                     enableMouseTracking: false
                 }
             }
-
         });
-
 
         Highcharts.chart('PerHourTrafficDailyAverageTableGraph', {
-            data: {
-                table: 'PerHourTrafficDailyAverageTable'
-            },
-            chart: {
-                type: 'line'
-            },
-            title: {
-                text: 'Per-Hour Traffic Daily Average'
-            },
+            data: { table: 'PerHourTrafficDailyAverageTable' },
+            chart: { type: 'line' },
+            title: { text: 'Per-Hour Traffic Daily Average' },
             yAxis: {
                 allowDecimals: false,
-                title: {
-                    text: 'Units'
-                }
+                title: { text: 'Units' }
             },
-
             plotOptions: {
                 line: {
-                    dataLabels: {
-                        enabled: true
-                    },
+                    dataLabels: { enabled: true },
                     enableMouseTracking: false
                 }
-            },
-
-
-
-        });
-
-    </script>
-
-
-
-
-    <script>
-        jQuery(document).ready(function ($) {
-            $('.counter').counterUp({
-                delay: 1,
-                time: 100
-            });
+            }
         });
     </script>
 
