@@ -281,7 +281,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
         'May', 'June', 'July', 'August',
         'September', 'October', 'November', 'December'
     ] %}
-        <div class="bg-white rounded-lg shadow p-6" x-data="{ open: false }">
+        <div class="bg-white dark:bg-gray-900 rounded-lg shadow p-6" x-data="{ open: false }">
             <div class="flex justify-between items-center">
                 <div>
                     <h3 class="text-xl font-semibold">{{ month }}</h3>
