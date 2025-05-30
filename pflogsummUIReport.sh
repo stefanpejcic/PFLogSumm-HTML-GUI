@@ -103,7 +103,7 @@ sed -n '/^Fatal Errors/,/^Master daemon messages/p;/^Master daemon messages/q' /
 #======================================================
 # Extract Information into variables -> Grand Totals
 #======================================================
-ReceivedEmail=$(awk '$2=="received" {print $1}'  /tmp/GrandTotals)
+ReceivedEmail=$(awk '$2=="received" && $1 ~ /^[0-9]+$/ {print $1}' /tmp/GrandTotals)
 DeliveredEmail=$(awk '$2=="delivered" {print $1}'  /tmp/GrandTotals)
 ForwardedEmail=$(awk '$2=="forwarded" {print $1}'  /tmp/GrandTotals)
 DeferredEmailCount=$(awk '$2=="deferred" {print $1}'  /tmp/GrandTotals)
