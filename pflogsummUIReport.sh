@@ -379,15 +379,6 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 
     <div class="container mx-auto py-6">
-        <!-- Header -->
-        <div class="mb-6">
-            <p class="text-sm text-gray-600">Emails</p>
-            <h1 class="text-3xl font-bold">Summary Report</h1>
-            <div class="mt-2">
-                <p>Report Date: <strong>##REPORTDATE##</strong></p>
-                <p>Hostname: <strong>##ACTIVEHOSTNAME##</strong></p>
-            </div>
-        </div>
 
         <!-- Quick Stats -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
