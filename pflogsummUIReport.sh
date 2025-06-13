@@ -281,7 +281,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
         'May', 'June', 'July', 'August',
         'September', 'October', 'November', 'December'
     ] %}
-        <div class="bg-white dark:bg-gray-900 rounded-lg shadow p-6" x-data="{ open: false }">
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 rounded-lg shadow p-6" x-data="{ open: false }">
             <div class="flex justify-between items-center">
                 <div>
                     <h3 class="text-xl font-semibold">{{ month }}</h3>
@@ -398,7 +398,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 {label: 'Sending Hosts/Domains', value: '##SendingHostsDomainsEmail##'},
                 {label: 'Mail Recipients', value: '##RecipientsEmail##'}
             ]">
-                <div class="bg-white shadow rounded p-4 text-center">
+                <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
                     <div class="text-2xl font-bold" x-text="stat.value"></div>
                     <div class="text-sm mt-1" x-text="stat.label"></div>
                 </div>
@@ -407,10 +407,10 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
         <!-- Graphs -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-            <div class="bg-white p-4 rounded shadow">
+            <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
                 <div id="PerDayTrafficSummaryTableGraph" class="h-96 w-full"></div>
             </div>
-            <div class="bg-white p-4 rounded shadow">
+            <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
                 <div id="PerHourTrafficDailyAverageTableGraph" class="h-96 w-full"></div>
             </div>
         </div>
