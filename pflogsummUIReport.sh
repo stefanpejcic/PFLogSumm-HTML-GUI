@@ -306,21 +306,42 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const months = [
-            'January', 'February', 'March', 'April',
-            'May', 'June', 'July', 'August',
-            'September', 'October', 'November', 'December'
-        ];
-        months.forEach(month => {
-            document.querySelector(`.${month}List`).innerHTML = '';
-            fetch(`/emails/data/${month.toLowerCase().slice(0, 3)}_rpt.html?rnd=` + Math.random())
-                .then(res => res.text())
-                .then(html => {
-                    document.querySelector(`.${month}List`).innerHTML = html;
-                });
-        });
+document.addEventListener('DOMContentLoaded', () => {
+    const months = [
+        'January', 'February', 'March', 'April',
+        'May', 'June', 'July', 'August',
+        'September', 'October', 'November', 'December'
+    ];
+
+    months.forEach(month => {
+        const className = `.${month}List`;
+        const element = document.querySelector(className);
+
+        // Skip if the element doesn't exist
+        if (!element) return;
+
+        // Clear current content
+        element.innerHTML = '';
+
+        const file = `/emails/data/${month.toLowerCase().slice(0, 3)}_rpt.html?rnd=` + Math.random();
+
+        fetch(file)
+            .then(res => {
+                if (!res.ok) {
+                    // If 404 or other error, skip silently
+                    console.warn(`Could not load report for ${month}: ${res.status}`);
+                    return '';
+                }
+                return res.text();
+            })
+            .then(html => {
+                if (html) element.innerHTML = html;
+            })
+            .catch(err => {
+                console.error(`Error fetching ${month} report:`, err);
+            });
     });
+});
 </script>
 
 {% endblock %}
