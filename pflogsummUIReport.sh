@@ -265,7 +265,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                 <h1 class="mb-1 text-xl font-bold">Summary Reports</h1>
                 <h2 class="text-sm font-medium text-slate-500"></h2>
             </div>
-            <div class="flex flex-none text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
+            <div class="group sm:text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
               <div>Last Update: <b>##REPORTDATE##</b></div>
               <div>Server: <b>##ACTIVEHOSTNAME##</b></div>
             </div>
@@ -349,7 +349,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
                 <h1 class="mb-1 text-xl font-bold">Summary Reports</h1>
                 <h2 class="text-sm font-medium text-slate-500"></h2>
             </div>
-            <div class="flex flex-none text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
+            <div class="group sm:text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
               <div>Report Date: <b>##REPORTDATE##</b></div>
               <div>Hostname: <b>##ACTIVEHOSTNAME##</b></div>
             </div>
