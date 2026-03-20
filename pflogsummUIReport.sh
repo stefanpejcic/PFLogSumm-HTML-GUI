@@ -457,7 +457,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
             <tr><th>Date</th><th>Received</th><th>Delivered</th><th>Deferred</th><th>Bounced</th><th>Rejected</th></tr>
         </thead>
         <tbody>
-    ##PerDayTrafficSummaryTableHC##
+        ##PerDayTrafficSummaryTableHC##
         </tbody>
     </table>
     
@@ -466,7 +466,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
             <tr><th>Time</th><th>Received</th><th>Delivered</th><th>Deferred</th><th>Bounced</th><th>Rejected</th></tr>
         </thead>
         <tbody>
-    ##PerHourTrafficDailyAverageTableHC##
+        ##PerHourTrafficDailyAverageTableHC##
         </tbody>
     </table>
 
@@ -482,19 +482,45 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
     <!-- Hidden data stores for collapsible table sections -->
     <!-- These are plain HTML divs - bash replaces the ##placeholders## safely here, outside Alpine/JS context -->
-    <div id="data-PerDayTrafficSummary" style="display:none">##PerDayTrafficSummaryTable##</div>
-    <div id="data-PerHourTrafficDailyAverage" style="display:none">##PerHourTrafficDailyAverageTable##</div>
-    <div id="data-HostDomainSummaryMessagesReceived" style="display:none">##HostDomainSummaryMessagesReceived##</div>
-    <div id="data-SendersbyMessageSize" style="display:none">##SendersbyMessageSize##</div>
-    <div id="data-Sendersbymessagecount" style="display:none">##Sendersbymessagecount##</div>
-    <div id="data-RecipientsbyMessageCount" style="display:none">##RecipientsbyMessageCount##</div>
-    <div id="data-HostDomainSummaryMessageDelivery" style="display:none">##HostDomainSummaryMessageDelivery##</div>
-    <div id="data-Recipientsbymessagesize" style="display:none">##Recipientsbymessagesize##</div>
-    <div id="data-Messageswithnosizedata" style="display:none">##Messageswithnosizedata##</div>
-    <div id="data-MessageDeferralDetail" style="display:none">##MessageDeferralDetail##</div>
-    <div id="data-MessageBounceDetailbyrelay" style="display:none">##MessageBounceDetailbyrelay##</div>
-    <div id="data-MailWarnings" style="display:none">##MailWarnings##</div>
-    <div id="data-MailFatalErrors" style="display:none">##MailFatalErrors##</div>
+    <div id="data-PerDayTrafficSummary" style="display:none">
+    ##PerDayTrafficSummaryTable##
+    </div>
+    <div id="data-PerHourTrafficDailyAverage" style="display:none">
+    ##PerHourTrafficDailyAverageTable##
+    </div>
+    <div id="data-HostDomainSummaryMessagesReceived" style="display:none">
+    ##HostDomainSummaryMessagesReceived##
+    </div>
+    <div id="data-SendersbyMessageSize" style="display:none">
+    ##SendersbyMessageSize##
+    </div>
+    <div id="data-Sendersbymessagecount" style="display:none">
+    ##Sendersbymessagecount##
+    </div>
+    <div id="data-RecipientsbyMessageCount" style="display:none">
+    ##RecipientsbyMessageCount##
+    </div>
+    <div id="data-HostDomainSummaryMessageDelivery" style="display:none">
+    ##HostDomainSummaryMessageDelivery##
+    </div>
+    <div id="data-Recipientsbymessagesize" style="display:none">
+    ##Recipientsbymessagesize##
+    </div>
+    <div id="data-Messageswithnosizedata" style="display:none">
+    ##Messageswithnosizedata##
+    </div>
+    <div id="data-MessageDeferralDetail" style="display:none">
+    ##MessageDeferralDetail##
+    </div>
+    <div id="data-MessageBounceDetailbyrelay" style="display:none">
+    ##MessageBounceDetailbyrelay##
+    </div>
+    <div id="data-MailWarnings" style="display:none">
+    ##MailWarnings##
+    </div>
+    <div id="data-MailFatalErrors" style="display:none">
+    ##MailFatalErrors##
+    </div>
 
     <!-- Collapsible Sections - NO HTML content inside Alpine array, only IDs and metadata -->
     <div class="space-y-4" id="collapsible-sections"></div>
