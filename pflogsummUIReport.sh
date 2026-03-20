@@ -335,7 +335,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 return res.text();
             })
             .then(html => {
-                if (html) element.innerHTML = html;
+              if (html) {
+                  element.innerHTML = html;
+              
+                  const items = Array.from(element.children);
+              
+                  items.sort((a, b) => {
+                      const numA = parseInt(a.textContent.match(/\d+/));
+                      const numB = parseInt(b.textContent.match(/\d+/));
+                      return numA - numB;
+                  });
+              
+                  element.innerHTML = '';
+                  items.forEach(item => element.appendChild(item));
+              }
             })
             .catch(err => {
                 console.error(`Error fetching ${month} report:`, err);
@@ -786,19 +799,19 @@ d
 #======================================================
 # Count Existing Reports - For Dashboard Display
 #======================================================
-JanRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Jan*.html | wc -l)
-FebRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Feb*.html | wc -l)
-MarRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Mar*.html | wc -l)
-AprRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Apr*.html | wc -l)
-MayRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-May*.html | wc -l)
-JunRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Jun*.html | wc -l)
-JulRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Jul*.html | wc -l)
-AugRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Aug*.html | wc -l)
-SepRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Sep*.html | wc -l)
-OctRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Oct*.html | wc -l)
-NovRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Nov*.html | wc -l)
-DecRPTCount=$(find $HTMLOUTPUTDIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Dec*.html | wc -l)
-
+ACTUAL_DIR="/usr/local/admin/templates/emails"
+JanRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Jan*.html | wc -l)
+FebRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Feb*.html | wc -l)
+MarRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Mar*.html | wc -l)
+AprRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Apr*.html | wc -l)
+MayRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-May*.html | wc -l)
+JunRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Jun*.html | wc -l)
+JulRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Jul*.html | wc -l)
+AugRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Aug*.html | wc -l)
+SepRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Sep*.html | wc -l)
+OctRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Oct*.html | wc -l)
+NovRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Nov*.html | wc -l)
+DecRPTCount=$(find $ACTUAL_DIR/data  -maxdepth 1 -type f -name $CURRENTYEAR-Dec*.html | wc -l)
 
 #======================================================
 # Replace Report Totals for Report - Index
