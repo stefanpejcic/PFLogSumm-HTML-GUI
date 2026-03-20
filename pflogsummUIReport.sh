@@ -456,18 +456,14 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
         <thead>
             <tr><th>Date</th><th>Received</th><th>Delivered</th><th>Deferred</th><th>Bounced</th><th>Rejected</th></tr>
         </thead>
-        <tbody>
-##PerDayTrafficSummaryTable##
-        </tbody>
+        <tbody id="PerDayTrafficSummaryTableBody"></tbody>
     </table>
-
+    
     <table id="PerHourTrafficDailyAverageTable" style="display:none">
         <thead>
             <tr><th>Time</th><th>Received</th><th>Delivered</th><th>Deferred</th><th>Bounced</th><th>Rejected</th></tr>
         </thead>
-        <tbody>
-##PerHourTrafficDailyAverageTable##
-        </tbody>
+        <tbody id="PerHourTrafficDailyAverageTableBody"></tbody>
     </table>
 
     <!-- Graphs -->
@@ -503,6 +499,14 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
 <script>
 feather.replace();
+
+// Copy data-div rows into hidden Highcharts tables BEFORE rendering charts
+document.getElementById('PerDayTrafficSummaryTableBody').innerHTML =
+    document.getElementById('data-PerDayTrafficSummary').innerHTML;
+
+document.getElementById('PerHourTrafficDailyAverageTableBody').innerHTML =
+    document.getElementById('data-PerHourTrafficDailyAverage').innerHTML;
+
 
 // Highcharts graphs - reads from real DOM tables above
 Highcharts.chart('PerDayTrafficSummaryTableGraph', {
