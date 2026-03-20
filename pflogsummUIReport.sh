@@ -378,142 +378,214 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
     </header>
 </div>
 
+<!-- Icons -->
+<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 
+<!-- Graphs -->
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
 
+<div class="container mx-auto py-6">
 
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
 
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##ReceivedEmail##</div>
+            <div class="text-sm mt-1">Received Email</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##DeliveredEmail##</div>
+            <div class="text-sm mt-1">Delivered Mail</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##ForwardedEmail##</div>
+            <div class="text-sm mt-1">Forwarded Mail</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##DeferredEmailCount##</div>
+            <div class="text-sm mt-1">Deferred ##DeferredEmailDeferralsCount##</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##BouncedEmail##</div>
+            <div class="text-sm mt-1">Bounced Mail</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##RejectedWarningsEmail##</div>
+            <div class="text-sm mt-1">Reject Warnings ##RejectedEmailPercentage##</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##RejectedEmailCount##</div>
+            <div class="text-sm mt-1">Rejected Mail ##RejectedEmailPercentage##</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##HeldEmail##</div>
+            <div class="text-sm mt-1">Held Mail</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##DiscardedEmailCount##</div>
+            <div class="text-sm mt-1">Discarded Mail ##DiscardedEmailPercentage##</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##BytesReceivedEmail##</div>
+            <div class="text-sm mt-1">Bytes Received</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##BytesDeliveredEmail##</div>
+            <div class="text-sm mt-1">Bytes Delivered</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##SendersEmail##</div>
+            <div class="text-sm mt-1">Mail Senders</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##SendingHostsDomainsEmail##</div>
+            <div class="text-sm mt-1">Sending Hosts/Domains</div>
+        </div>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
+            <div class="text-2xl font-bold">##RecipientsEmail##</div>
+            <div class="text-sm mt-1">Mail Recipients</div>
+        </div>
 
-    <!-- Icons -->
-    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
-    <script>
-        feather.replace()
-    </script>
+    </div>
+
+    <!-- Hidden tables for Highcharts - MUST be real DOM tables, not Alpine-injected -->
+    <table id="PerDayTrafficSummaryTable" style="display:none">
+        <thead>
+            <tr><th>Date</th><th>Received</th><th>Delivered</th><th>Deferred</th><th>Bounced</th><th>Rejected</th></tr>
+        </thead>
+        <tbody>
+##PerDayTrafficSummaryTable##
+        </tbody>
+    </table>
+
+    <table id="PerHourTrafficDailyAverageTable" style="display:none">
+        <thead>
+            <tr><th>Time</th><th>Received</th><th>Delivered</th><th>Deferred</th><th>Bounced</th><th>Rejected</th></tr>
+        </thead>
+        <tbody>
+##PerHourTrafficDailyAverageTable##
+        </tbody>
+    </table>
 
     <!-- Graphs -->
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-
-    <!-- Code Highlight-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
-
-
-    <div class="container mx-auto py-6">
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            <template x-for="stat in [
-                {label: 'Received Email', value: '##ReceivedEmail##'},
-                {label: 'Delivered Mail', value: '##DeliveredEmail##'},
-                {label: 'Forwarded Mail', value: '##ForwardedEmail##'},
-                {label: `Deferred ##DeferredEmailDeferralsCount##`, value: '##DeferredEmailCount##'},
-                {label: 'Bounced Mail', value: '##BouncedEmail##'},
-                {label: `Rejected Warning ##RejectedEmailPercentage##`, value: '##RejectedWarningsEmail##'},
-                {label: `Rejected Mail ##RejectedEmailPercentage##`, value: '##RejectedEmailCount##'},
-                {label: 'Held Mail', value: '##HeldEmail##'},
-                {label: `Discarded Mail ##DiscardedEmailPercentage##`, value: '##DiscardedEmailCount##'},
-                {label: 'Bytes Received', value: '##BytesReceivedEmail##'},
-                {label: 'Bytes Delivered', value: '##BytesDeliveredEmail##'},
-                {label: 'Mail Senders', value: '##SendersEmail##'},
-                {label: 'Sending Hosts/Domains', value: '##SendingHostsDomainsEmail##'},
-                {label: 'Mail Recipients', value: '##RecipientsEmail##'}
-            ]">
-                <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
-                    <div class="text-2xl font-bold" x-text="stat.value"></div>
-                    <div class="text-sm mt-1" x-text="stat.label"></div>
-                </div>
-            </template>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
+            <div id="PerDayTrafficSummaryTableGraph" style="height:24rem; width:100%;"></div>
         </div>
-
-        <!-- Graphs -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
-            <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
-                <div id="PerDayTrafficSummaryTableGraph" class="h-96 w-full"></div>
-            </div>
-            <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
-                <div id="PerHourTrafficDailyAverageTableGraph" class="h-96 w-full"></div>
-            </div>
-        </div>
-
-        <!-- Collapsible Sections -->
-        <div class="space-y-4">
-            <template x-for="section in [
-                { id: 'PerDayTrafficSummary', title: 'Per-Day Traffic Summary', body: '##PerDayTrafficSummaryTable##', headers: ['Date','Received','Delivered','Deferred','Bounced','Rejected'] },
-                { id: 'PerHourTrafficDailyAverage', title: 'Per-Hour Traffic Daily Average', body: '##PerHourTrafficDailyAverageTable##', headers: ['Time','Received','Delivered','Deferred','Bounced','Rejected'] },
-                { id: 'HostDomainSummaryMessagesReceived', title: 'Host/Domain Summary: Messages Received', body: '##HostDomainSummaryMessagesReceived##', headers: ['Message Count','Bytes','Host/Domain'] },
-                { id: 'SendersbyMessageSize', title: 'Senders by Message Size', body: '##SendersbyMessageSize##', headers: ['Size','Sender'] },
-                { id: 'SendersbyMessageCount', title: 'Senders by Message Count', body: '##Sendersbymessagecount##', headers: ['Message Count','Sender'] },
-                { id: 'RecipientsbyMessageCount', title: 'Recipients by Message Count', body: '##RecipientsbyMessageCount##', headers: ['Message Count','Recipient'] },
-                { id: 'HostDomainSummaryMessageDelivery', title: 'Host/Domain Summary: Message Delivery', body: '##HostDomainSummaryMessageDelivery##', headers: ['Sent Count','Bytes','Defers','Average Daily','Maximum Daily','Host/Domain'] },
-                { id: 'Recipientsbymessagesize', title: 'Recipients by message size', body: '##Recipientsbymessagesize##', headers: ['Size','Recipient'] },
-                { id: 'Messageswithnosizedata', title: 'Messages with no size data', body: '##Messageswithnosizedata##', headers: ['Queue ID','Email Address'] },
-                { id: 'MessageDeferralDetail', title: 'Message Deferral Detail', body: '##MessageDeferralDetail##', pre: true },
-                { id: 'MessageBounceDetailbyrelay', title: 'Message Bounce Detail (By Relay)', body: '##MessageBounceDetailbyrelay##', pre: true },
-                { id: 'MailWarnings', title: 'Mail Warnings', body: '##MailWarnings##', pre: true },
-                { id: 'MailFatalErrors', title: 'Mail Fatal Errors', body: '##MailFatalErrors##', pre: true }
-            ]">
-                <div x-data="{ open: false }" class="bg-white p-4 rounded shadow">
-                    <h3 @click="open = !open" class="cursor-pointer text-lg font-semibold border-b pb-2">
-                        <span x-text="section.title"></span>
-                    </h3>
-                    <div x-show="open" x-transition class="mt-2">
-                        <template x-if="!section.pre">
-                            <div class="overflow-x-auto">
-                                <table class="min-w-full text-sm text-left text-gray-700">
-                                    <thead class="bg-gray-100 font-semibold">
-                                        <tr>
-                                            <template x-for="header in section.headers">
-                                                <th class="px-4 py-2" x-text="header"></th>
-                                            </template>
-                                        </tr>
-                                    </thead>
-                                    <tbody x-html="section.body"></tbody>
-                                </table>
-                            </div>
-                        </template>
-                        <template x-if="section.pre">
-                            <pre class="whitespace-pre-wrap overflow-auto max-h-96" x-html="section.body"></pre>
-                        </template>
-                    </div>
-                </div>
-            </template>
+        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
+            <div id="PerHourTrafficDailyAverageTableGraph" style="height:24rem; width:100%;"></div>
         </div>
     </div>
 
-    <script>
-        Highcharts.chart('PerDayTrafficSummaryTableGraph', {
-            data: { table: 'PerDayTrafficSummaryTable' },
-            chart: { type: 'line' },
-            title: { text: 'Per-Day Traffic Summary' },
-            yAxis: {
-                allowDecimals: false,
-                title: { text: 'Units' }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: { enabled: true },
-                    enableMouseTracking: false
-                }
-            }
-        });
+    <!-- Hidden data stores for collapsible table sections -->
+    <!-- These are plain HTML divs - bash replaces the ##placeholders## safely here, outside Alpine/JS context -->
+    <div id="data-PerDayTrafficSummary" style="display:none">##PerDayTrafficSummaryTable##</div>
+    <div id="data-PerHourTrafficDailyAverage" style="display:none">##PerHourTrafficDailyAverageTable##</div>
+    <div id="data-HostDomainSummaryMessagesReceived" style="display:none">##HostDomainSummaryMessagesReceived##</div>
+    <div id="data-SendersbyMessageSize" style="display:none">##SendersbyMessageSize##</div>
+    <div id="data-Sendersbymessagecount" style="display:none">##Sendersbymessagecount##</div>
+    <div id="data-RecipientsbyMessageCount" style="display:none">##RecipientsbyMessageCount##</div>
+    <div id="data-HostDomainSummaryMessageDelivery" style="display:none">##HostDomainSummaryMessageDelivery##</div>
+    <div id="data-Recipientsbymessagesize" style="display:none">##Recipientsbymessagesize##</div>
+    <div id="data-Messageswithnosizedata" style="display:none">##Messageswithnosizedata##</div>
+    <div id="data-MessageDeferralDetail" style="display:none">##MessageDeferralDetail##</div>
+    <div id="data-MessageBounceDetailbyrelay" style="display:none">##MessageBounceDetailbyrelay##</div>
+    <div id="data-MailWarnings" style="display:none">##MailWarnings##</div>
+    <div id="data-MailFatalErrors" style="display:none">##MailFatalErrors##</div>
 
-        Highcharts.chart('PerHourTrafficDailyAverageTableGraph', {
-            data: { table: 'PerHourTrafficDailyAverageTable' },
-            chart: { type: 'line' },
-            title: { text: 'Per-Hour Traffic Daily Average' },
-            yAxis: {
-                allowDecimals: false,
-                title: { text: 'Units' }
-            },
-            plotOptions: {
-                line: {
-                    dataLabels: { enabled: true },
-                    enableMouseTracking: false
-                }
-            }
-        });
-    </script>
+    <!-- Collapsible Sections - NO HTML content inside Alpine array, only IDs and metadata -->
+    <div class="space-y-4" id="collapsible-sections"></div>
+
+</div>
+
+<script>
+feather.replace();
+
+// Highcharts graphs - reads from real DOM tables above
+Highcharts.chart('PerDayTrafficSummaryTableGraph', {
+    data: { table: 'PerDayTrafficSummaryTable' },
+    chart: { type: 'line' },
+    title: { text: 'Per-Day Traffic Summary' },
+    yAxis: { allowDecimals: false, title: { text: 'Units' } },
+    plotOptions: { line: { dataLabels: { enabled: true }, enableMouseTracking: true } }
+});
+
+Highcharts.chart('PerHourTrafficDailyAverageTableGraph', {
+    data: { table: 'PerHourTrafficDailyAverageTable' },
+    chart: { type: 'line' },
+    title: { text: 'Per-Hour Traffic Daily Average' },
+    yAxis: { allowDecimals: false, title: { text: 'Units' } },
+    plotOptions: { line: { dataLabels: { enabled: true }, enableMouseTracking: true } }
+});
+
+// Collapsible sections - built in plain JS, no Alpine, no HTML in arrays
+var sections = [
+    { id: 'PerDayTrafficSummary',              title: 'Per-Day Traffic Summary',                    headers: ['Date','Received','Delivered','Deferred','Bounced','Rejected'], pre: false },
+    { id: 'PerHourTrafficDailyAverage',        title: 'Per-Hour Traffic Daily Average',              headers: ['Time','Received','Delivered','Deferred','Bounced','Rejected'], pre: false },
+    { id: 'HostDomainSummaryMessagesReceived', title: 'Host/Domain Summary: Messages Received',      headers: ['Message Count','Bytes','Host/Domain'],                         pre: false },
+    { id: 'SendersbyMessageSize',              title: 'Senders by Message Size',                    headers: ['Size','Sender'],                                               pre: false },
+    { id: 'Sendersbymessagecount',             title: 'Senders by Message Count',                   headers: ['Message Count','Sender'],                                      pre: false },
+    { id: 'RecipientsbyMessageCount',          title: 'Recipients by Message Count',                headers: ['Message Count','Recipient'],                                   pre: false },
+    { id: 'HostDomainSummaryMessageDelivery',  title: 'Host/Domain Summary: Message Delivery',      headers: ['Sent Count','Bytes','Defers','Avg Daily','Max Daily','Host/Domain'], pre: false },
+    { id: 'Recipientsbymessagesize',           title: 'Recipients by Message Size',                 headers: ['Size','Recipient'],                                            pre: false },
+    { id: 'Messageswithnosizedata',            title: 'Messages with No Size Data',                 headers: ['Queue ID','Email Address'],                                    pre: false },
+    { id: 'MessageDeferralDetail',             title: 'Message Deferral Detail',                    headers: [],                                                              pre: true  },
+    { id: 'MessageBounceDetailbyrelay',        title: 'Message Bounce Detail (By Relay)',           headers: [],                                                              pre: true  },
+    { id: 'MailWarnings',                      title: 'Mail Warnings',                              headers: [],                                                              pre: true  },
+    { id: 'MailFatalErrors',                   title: 'Mail Fatal Errors',                          headers: [],                                                              pre: true  }
+];
+
+var container = document.getElementById('collapsible-sections');
+
+sections.forEach(function(section) {
+    var dataEl = document.getElementById('data-' + section.id);
+    var content = dataEl ? dataEl.innerHTML : '';
+
+    // Build inner content
+    var innerHtml = '';
+    if (section.pre) {
+        innerHtml = '<pre class="whitespace-pre-wrap overflow-auto max-h-96 text-sm">' + content + '</pre>';
+    } else {
+        var headerCells = section.headers.map(function(h) {
+            return '<th class="px-4 py-2">' + h + '</th>';
+        }).join('');
+        innerHtml =
+            '<div class="overflow-x-auto">' +
+              '<table class="min-w-full text-sm text-left text-gray-700">' +
+                '<thead class="bg-gray-100 font-semibold"><tr>' + headerCells + '</tr></thead>' +
+                '<tbody>' + content + '</tbody>' +
+              '</table>' +
+            '</div>';
+    }
+
+    // Build collapsible wrapper
+    var wrapper = document.createElement('div');
+    wrapper.className = 'border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow';
+    wrapper.innerHTML =
+        '<h3 class="cursor-pointer text-lg font-semibold border-b pb-2 flex justify-between items-center" onclick="toggleSection(this)">' +
+            '<span>' + section.title + '</span>' +
+            '<span class="text-sm text-blue-600">Show</span>' +
+        '</h3>' +
+        '<div class="section-body mt-2" style="display:none">' + innerHtml + '</div>';
+
+    container.appendChild(wrapper);
+});
+
+function toggleSection(header) {
+    var body = header.nextElementSibling;
+    var label = header.querySelector('span:last-child');
+    if (body.style.display === 'none') {
+        body.style.display = 'block';
+        label.textContent = 'Hide';
+    } else {
+        body.style.display = 'none';
+        label.textContent = 'Show';
+    }
+}
+</script>
 
 {% endblock %}
 HTMLREPORTDASHBOARD
