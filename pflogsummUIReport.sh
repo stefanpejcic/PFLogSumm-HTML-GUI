@@ -482,32 +482,50 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 
     <!-- Hidden data stores for collapsible table sections -->
     <!-- These are plain HTML divs - bash replaces the ##placeholders## safely here, outside Alpine/JS context -->
-    <div id="data-PerDayTrafficSummary" style="display:none">
+<div id="data-PerDayTrafficSummary" style="display:none">
+    <table><tbody>
     ##PerDayTrafficSummaryTable##
+    </tbody></table>
     </div>
     <div id="data-PerHourTrafficDailyAverage" style="display:none">
+    <table><tbody>
     ##PerHourTrafficDailyAverageTable##
+    </tbody></table>
     </div>
     <div id="data-HostDomainSummaryMessagesReceived" style="display:none">
+    <table><tbody>
     ##HostDomainSummaryMessagesReceived##
+    </tbody></table>
     </div>
     <div id="data-SendersbyMessageSize" style="display:none">
+    <table><tbody>
     ##SendersbyMessageSize##
+    </tbody></table>
     </div>
     <div id="data-Sendersbymessagecount" style="display:none">
+    <table><tbody>
     ##Sendersbymessagecount##
+    </tbody></table>
     </div>
     <div id="data-RecipientsbyMessageCount" style="display:none">
+    <table><tbody>
     ##RecipientsbyMessageCount##
+    </tbody></table>
     </div>
     <div id="data-HostDomainSummaryMessageDelivery" style="display:none">
+    <table><tbody>
     ##HostDomainSummaryMessageDelivery##
+    </tbody></table>
     </div>
     <div id="data-Recipientsbymessagesize" style="display:none">
+    <table><tbody>
     ##Recipientsbymessagesize##
+    </tbody></table>
     </div>
     <div id="data-Messageswithnosizedata" style="display:none">
+    <table><tbody>
     ##Messageswithnosizedata##
+    </tbody></table>
     </div>
     <div id="data-MessageDeferralDetail" style="display:none">
     ##MessageDeferralDetail##
