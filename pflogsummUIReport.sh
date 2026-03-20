@@ -599,7 +599,7 @@ sections.forEach(function(section) {
         }).join('');
         innerHtml =
             '<div class="overflow-x-auto">' +
-              '<table class="min-w-full text-sm text-left text-gray-700">' +
+              '<table class="w-full text-sm text-left text-gray-700">' +
                 '<thead class="bg-gray-100 font-semibold"><tr>' + headerCells + '</tr></thead>' +
                 '<tbody>' + content + '</tbody>' +
               '</table>' +
