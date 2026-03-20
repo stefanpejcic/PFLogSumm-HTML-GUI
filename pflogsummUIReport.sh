@@ -568,7 +568,8 @@ var container = document.getElementById('collapsible-sections');
 
 sections.forEach(function(section) {
     var dataEl = document.getElementById('data-' + section.id);
-    var content = dataEl ? dataEl.innerHTML : '';
+    var tbody = dataEl ? dataEl.querySelector('tbody') : null;
+    var content = tbody ? tbody.innerHTML : (dataEl ? dataEl.innerHTML : '');
 
     // Build inner content
     var innerHtml = '';
