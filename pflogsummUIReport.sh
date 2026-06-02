@@ -271,7 +271,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
     </header>
 </div>
 
-<div x-data="reportsApp()" class="container mx-auto px-4 py-6">
+<div x-data="reportsApp()" class="container mx-auto p-4">
 
     <div class="flex flex-wrap gap-2 mb-4">
         <template x-for="y in years" :key="y">
