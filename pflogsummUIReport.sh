@@ -497,7 +497,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
     </table>
 
     <!-- Graphs -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
         <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 p-4 rounded shadow">
             <div id="PerDayTrafficSummaryTableGraph" style="height:24rem; width:100%;"></div>
         </div>
