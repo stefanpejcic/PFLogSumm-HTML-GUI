@@ -273,7 +273,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 
 <div x-data="reportsApp()" class="container mx-auto px-4 py-6">
 
-    <div class="flex flex-wrap gap-2 mb-6">
+    <div class="flex flex-wrap gap-2 mb-4">
         <template x-for="y in years" :key="y">
             <button
                 @click="setYear(y)"
@@ -416,7 +416,7 @@ cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTML
 <div class="container mx-auto py-6">
 
     <!-- Quick Stats -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-4">
 
         <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 shadow rounded p-4 text-center">
             <div class="text-2xl font-bold">##ReceivedEmail##</div>
