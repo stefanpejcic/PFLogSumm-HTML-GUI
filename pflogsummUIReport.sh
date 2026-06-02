@@ -251,116 +251,136 @@ $MOVEF  /tmp/Messageswithnosizedata_tmp /tmp/Messageswithnosizedata  &> /dev/nul
 # Using embedded HTML makes the script highly portable
 # SED search and replace tags to fill the content
 #======================================================
-
 cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
 {% extends 'base.html' %}
 
 {% block content %}
 
-<!-- Page Header -->
 <div class="border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-950 sm:p-6 lg:p-8">
     <header>
         <div class="flex flex-col gap-2 text-center sm:flex-row sm:items-center sm:justify-between sm:text-start">
             <div class="grow">
-                <h1 class="mb-1 text-xl font-bold">Summary Reports</h1>
-                <h2 class="text-sm font-medium text-slate-500"></h2>
+                <h1 class="mb-1 text-xl font-bold">Mail Reports</h1>
+                <h2 class="text-sm font-medium text-slate-500">Daily postfix log summaries</h2>
             </div>
-            <div class="group sm:text-right items-center justify-center gap-2 rounded-sm px-2 sm:justify-end sm:bg-transparent sm:px-0">
-              <div>Last Update: <b>##REPORTDATE##</b></div>
-              <div>Server: <b>##ACTIVEHOSTNAME##</b></div>
+            <div class="sm:text-right text-sm">
+                <div>Last Update: <b>##REPORTDATE##</b></div>
+                <div>Server: <b>##ACTIVEHOSTNAME##</b></div>
             </div>
         </div>
     </header>
 </div>
 
+<div x-data="reportsApp()" class="container mx-auto px-4 py-6">
 
-<!-- Reports -->
-<div class="container mx-auto px-4 py-6 space-y-8">
-    {% for month in [
-        'January', 'February', 'March', 'April',
-        'May', 'June', 'July', 'August',
-        'September', 'October', 'November', 'December'
-    ] %}
-        <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 rounded-lg shadow p-6" x-data="{ open: false }">
-            <div class="flex justify-between items-center">
-                <div>
-                    <h3 class="text-xl font-semibold">{{ month }}</h3>
-                    <p class="text-sm text-gray-500 mt-1">Report Count:
-                        <span class="ml-1 inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">
-                            ##{{ month }}Count##
-                        </span>
-                    </p>
-                </div>
-                <button @click="open = !open" class="text-blue-600 hover:underline text-sm">
-                    <span x-text="open ? 'Hide Reports' : 'View Reports'"></span>
-                </button>
-            </div>
+    <div class="flex flex-wrap gap-2 mb-6">
+        <template x-for="y in years" :key="y">
+            <button
+                @click="setYear(y)"
+                :class="activeYear === y
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800'"
+                class="inline-flex items-center rounded border px-3 py-1.5 text-sm font-medium transition-colors"
+                x-text="y">
+            </button>
+        </template>
+    </div>
 
-            <div x-show="open" x-collapse class="mt-4">
-                <div class="list-group list-group-flush flex gap-2 {{ month }}List">
-                    <!-- Dynamic Item List -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <template x-for="(month, idx) in monthNames" :key="idx">
+            <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 rounded-lg shadow-sm">
+
+                <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100 dark:border-gray-800">
+                    <span class="font-semibold text-sm" x-text="month"></span>
+                    <span class="inline-block bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300 text-xs px-2 py-0.5 rounded-full"
+                          x-text="(reportDays[idx] || []).length"></span>
                 </div>
+
+                <div class="p-3">
+                    <div class="grid grid-cols-7 mb-1">
+                        <template x-for="d in ['Mo','Tu','We','Th','Fr','Sa','Su']" :key="d">
+                            <div class="text-center text-xs text-gray-400 dark:text-gray-600 font-medium" x-text="d"></div>
+                        </template>
+                    </div>
+                    <div class="grid grid-cols-7 gap-y-0.5">
+                        <template x-for="_ in leadingBlanks(idx)" :key="'b'+_">
+                            <div></div>
+                        </template>
+                        <template x-for="day in daysInMonth(idx)" :key="day">
+                            <div class="flex items-center justify-center">
+                                <a x-show="hasReport(idx, day)"
+                                   :href="'/emails/data/' + activeYear + '-' + shortMonths[idx] + '-' + day + '.html'"
+                                   class="w-7 h-7 flex items-center justify-center rounded-full text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors"
+                                   x-text="day">
+                                </a>
+                                <span x-show="!hasReport(idx, day)"
+                                      class="w-7 h-7 flex items-center justify-center text-xs text-gray-400 dark:text-gray-600"
+                                      x-text="day">
+                                </span>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
             </div>
-        </div>
-    {% endfor %}
+        </template>
+    </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const months = [
-        'January', 'February', 'March', 'April',
-        'May', 'June', 'July', 'August',
-        'September', 'October', 'November', 'December'
-    ];
+function reportsApp() {
+    return {
+        activeYear: ##CURRENTYEAR##,
+        years: ##YEARS_JSON##,
+        monthNames: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+        shortMonths: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+        reportDays: {},
 
-    months.forEach(month => {
-        const className = `.${month}List`;
-        const element = document.querySelector(className);
+        init() {
+            this.loadYear(this.activeYear);
+        },
 
-        // Skip if the element doesn't exist
-        if (!element) return;
+        async setYear(y) {
+            this.activeYear = y;
+            this.reportDays = {};
+            await this.loadYear(y);
+        },
 
-        // Clear current content
-        element.innerHTML = '';
-
-        const file = `/emails/data/${month.toLowerCase().slice(0, 3)}_rpt.html?rnd=` + Math.random();
-
-        fetch(file)
-            .then(res => {
-                if (!res.ok) {
-                    // If 404 or other error, skip silently
-                    console.warn(`Could not load report for ${month}: ${res.status}`);
-                    return '';
-                }
-                return res.text();
-            })
-            .then(html => {
-              if (html) {
-                  element.innerHTML = html;
-              
-                  const items = Array.from(element.children);
-              
-                  items.sort((a, b) => {
-                      const numA = parseInt(a.textContent.match(/\d+/));
-                      const numB = parseInt(b.textContent.match(/\d+/));
-                      return numA - numB;
-                  });
-              
-                  element.innerHTML = '';
-                  items.forEach(item => element.appendChild(item));
-              }
-            })
-            .catch(err => {
-                console.error(`Error fetching ${month} report:`, err);
+        async loadYear(year) {
+            const fetches = this.shortMonths.map(async (m, idx) => {
+                try {
+                    const res = await fetch(`/emails/data/${m.toLowerCase()}_rpt_${year}.html?rnd=` + Math.random());
+                    if (!res.ok) return;
+                    const html = await res.text();
+                    const tmp = document.createElement('div');
+                    tmp.innerHTML = html;
+                    this.reportDays[idx] = Array.from(tmp.querySelectorAll('a[data-day]'))
+                        .map(a => parseInt(a.dataset.day));
+                } catch {}
             });
-    });
-});
+            await Promise.all(fetches);
+        },
+
+        hasReport(monthIdx, day) {
+            return (this.reportDays[monthIdx] || []).includes(day);
+        },
+
+        daysInMonth(monthIdx) {
+            const n = new Date(this.activeYear, monthIdx + 1, 0).getDate();
+            return Array.from({length: n}, (_, i) => i + 1);
+        },
+
+        leadingBlanks(monthIdx) {
+            let d = new Date(this.activeYear, monthIdx, 1).getDay();
+            d = d === 0 ? 6 : d - 1;
+            return Array.from({length: d}, (_, i) => i);
+        }
+    }
+}
 </script>
 
 {% endblock %}
-
 HTMLOUTPUTINDEXDASHBOARD
-
 
 
 #======================================================
@@ -828,6 +848,10 @@ sed -i "s/##OctoberCount##/$OctRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
 sed -i "s/##NovemberCount##/$NovRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
 sed -i "s/##DecemberCount##/$DecRPTCount/g" $HTMLOUTPUT_INDEXDASHBOARD
 
+YEARS_JSON=$(find $HTMLOUTPUTDIR/data -maxdepth 1 -type f -name '[0-9][0-9][0-9][0-9]-*.html' | grep -oE '[0-9]{4}' | sort -rn | uniq | tr '\n' ',' | sed 's/,$//' | sed 's/.*/[&]/')
+
+sed -i "s/##CURRENTYEAR##/$CURRENTYEAR/g" $HTMLOUTPUT_INDEXDASHBOARD
+sed -i "s/##YEARS_JSON##/$YEARS_JSON/g" $HTMLOUTPUT_INDEXDASHBOARD
 sed -i "s/##REPORTDATE##/$REPORTDATE/g" $HTMLOUTPUT_INDEXDASHBOARD
 sed -i "s/##ACTIVEHOSTNAME##/$ACTIVEHOSTNAME/g" $HTMLOUTPUT_INDEXDASHBOARD
 
@@ -837,63 +861,16 @@ sed -i "s/##ACTIVEHOSTNAME##/$ACTIVEHOSTNAME/g" $HTMLOUTPUT_INDEXDASHBOARD
 #======================================================
 
 #Delete Exisitng File Indexs
-rm -fr $HTMLOUTPUTDIR/data/*_rpt.html
+rm -fr $HTMLOUTPUTDIR/data/*_rpt_*.html
 
-#Get List of report files
-for filename in $HTMLOUTPUTDIR/data/*.html; do
+for filename in $HTMLOUTPUTDIR/data/[0-9][0-9][0-9][0-9]-*.html; do
     filenameWithExtOnly="${filename##*/}"
     filenameWithoutExtension="${filenameWithExtOnly%.*}"
-    filenameDate="${filenameWithoutExtension##*-}"
- 
-    case $filenameWithExtOnly in
-        *Jan* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/jan_rpt.html
-        ;;
-
-        *Feb* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/feb_rpt.html
-        ;;
-
-        *Mar* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/mar_rpt.html
-        ;;
-
-        *Apr* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/apr_rpt.html
-        ;;
-
-        *May* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/may_rpt.html
-        ;;
-
-        *Jun* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/jun_rpt.html
-        ;;                                        
-
-        *Jul* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/jul_rpt.html
-        ;;
-
-        *Aug* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/aug_rpt.html
-        ;;
-
-        *Sep* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/sep_rpt.html
-        ;;
-
-        *Oct* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/oct_rpt.html
-        ;;        
-
-        *Nov* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/nov_rpt.html
-        ;;      
-
-        *Dec* )  
-        echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" class=\"list-group-item list-group-item-action\">$filenameDate</a>" >> $HTMLOUTPUTDIR/data/dec_rpt.html
-        ;;          
-    esac  
+    year=$(echo "$filenameWithoutExtension" | cut -d'-' -f1)
+    mon=$(echo "$filenameWithoutExtension"  | cut -d'-' -f2)
+    day=$(echo "$filenameWithoutExtension"  | cut -d'-' -f3)
+    monlower=$(echo "$mon" | tr '[:upper:]' '[:lower:]')
+    echo "<a href=\"/emails/data/${filenameWithoutExtension}.html\" data-day=\"${day}\">$day</a>" >> "$HTMLOUTPUTDIR/data/${monlower}_rpt_${year}.html"
 done
 
 
