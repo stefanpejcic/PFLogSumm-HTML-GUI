@@ -286,7 +286,7 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
         </template>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <template x-for="(month, idx) in monthNames" :key="idx">
             <div class="border bg-white dark:bg-[#090E1A] border-gray-200 dark:border-gray-900 rounded shadow-sm">
 
