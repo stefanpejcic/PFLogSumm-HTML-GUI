@@ -302,21 +302,14 @@ cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
                             <div class="text-center text-xs text-gray-400 dark:text-gray-600 font-medium" x-text="d"></div>
                         </template>
                     </div>
-                    <div class="grid grid-cols-7 gap-y-0.5">
+                    <div class="grid grid-cols-7 gap-2">
                         <template x-for="_ in leadingBlanks(idx)" :key="'b'+_">
                             <div></div>
                         </template>
                         <template x-for="day in daysInMonth(idx)" :key="day">
                             <div class="flex items-center justify-center">
-                                <a x-show="hasReport(idx, day)"
-                                   :href="'/emails/data/' + activeYear + '-' + shortMonths[idx] + '-' + day + '.html'"
-                                   class="w-7 h-7 flex items-center justify-center rounded-full text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors"
-                                   x-text="day">
-                                </a>
-                                <span x-show="!hasReport(idx, day)"
-                                      class="w-7 h-7 flex items-center justify-center text-xs text-gray-400 dark:text-gray-600"
-                                      x-text="day">
-                                </span>
+                                <a x-show="hasReport(idx, day)" :href="'/emails/data/' + activeYear + '-' + shortMonths[idx] + '-' + day + '.html'" class="w-6 h-6 flex items-center justify-center rounded-full text-xs font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors" x-text="day"></a>
+                                <span x-show="!hasReport(idx, day)" class="w-6 h-6 flex items-center justify-center text-xs text-gray-400 dark:text-gray-600" x-text="day"></span>
                             </div>
                         </template>
                     </div>
