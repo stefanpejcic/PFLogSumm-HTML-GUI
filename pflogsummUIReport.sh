@@ -57,8 +57,8 @@ echo "DEFAULT configuration file writen to ${PFSYSCONFDIR}/pflogsumui.conf, Plea
 exit 0
 fi
 
-# docker cp openadmin_mailserver:/usr/local/admin/static/reports/reports.html /usr/local/admin/templates/emails/reports.html
-# docker cp openadmin_mailserver:/usr/local/admin/static/reports/data /usr/local/admin/templates/emails/data
+# podman cp openadmin_mailserver:/usr/local/admin/static/reports/reports.html /usr/local/admin/templates/emails/reports.html
+# podman cp openadmin_mailserver:/usr/local/admin/static/reports/data /usr/local/admin/templates/emails/data
 
 #Load Config File
 . ${PFSYSCONFDIR}/"pflogsumui.conf"
@@ -252,9 +252,16 @@ $MOVEF  /tmp/Messageswithnosizedata_tmp /tmp/Messageswithnosizedata  &> /dev/nul
 # SED search and replace tags to fill the content
 #======================================================
 cat > $HTMLOUTPUT_INDEXDASHBOARD << 'HTMLOUTPUTINDEXDASHBOARD'
-{% extends 'base.html' %}
-
-{% block content %}
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(localStorage.getItem('color-theme')==='dark'||(!('color-theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}</script>
+<link rel="stylesheet" href="/static/dist/output.css">
+<script defer src="/static/dist/js/alpinejs3xx.min.js"></script>
+</head>
+<body class="h-full bg-white-50 antialiased dark:bg-gray-950 text-gray-800 dark:text-white">
 
 <div class="border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-950 sm:p-6 lg:p-8">
     <header>
@@ -372,7 +379,8 @@ function reportsApp() {
 }
 </script>
 
-{% endblock %}
+</body>
+</html>
 HTMLOUTPUTINDEXDASHBOARD
 
 
@@ -384,9 +392,16 @@ HTMLOUTPUTINDEXDASHBOARD
 #2018-Nov-17.html
 
 cat > "$HTMLOUTPUTDIR/data/$CURRENTYEAR-$CURRENTMONTH-$CURRENTDAY.html" << 'HTMLREPORTDASHBOARD'
-{% extends 'base.html' %}
-
-{% block content %}
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>if(localStorage.getItem('color-theme')==='dark'||(!('color-theme' in localStorage)&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}</script>
+<link rel="stylesheet" href="/static/dist/output.css">
+<script defer src="/static/dist/js/alpinejs3xx.min.js"></script>
+</head>
+<body class="h-full bg-white-50 antialiased dark:bg-gray-950 text-gray-800 dark:text-white">
 
 <!-- Page Header -->
 <div class="border-b border-gray-200 bg-gray-50 p-4 dark:border-gray-800 dark:bg-gray-950 sm:p-6 lg:p-8">
@@ -658,7 +673,8 @@ function toggleSection(header) {
 }
 </script>
 
-{% endblock %}
+</body>
+</html>
 HTMLREPORTDASHBOARD
 
 
